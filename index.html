@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="ＳＴＹＬＡＤＡＹ 穿搭快拍：電子衣櫥、穿搭月曆日記、自由畫板去背、衣櫥使用率與不會穿雷區分析，資料只存放在你的裝置本機。" />
+<meta name="theme-color" content="#1c1917" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎀%3C/text%3E%3C/svg%3E" />
+<title>ＳＴＹＬＡＤＡＹ 🎀 穿搭快拍 — 我的穿搭日記跟電子衣櫥</title>
+<style>
+/* Complete Standalone Mobile-First CSS (Zero External Dependencies)
+   優化：合併重複的 *,::before,::after reset；移除對 Tailwind CDN 的依賴，
+   並補齊原本由 CDN 即時產生、但內建 CSS 缺漏的 utility / 變體 class。 */
+*, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { -webkit-tap-highlight-color: transparent; line-height: 1.5; }
+button, input, select { font: inherit; }
+button { border: none; background: none; cursor: pointer; touch-action: manipulation; }
+table { border-collapse: collapse; width: 100%; }
+.min-h-screen { min-height: 100vh; }
+.h-full { height: 100%; }
+.h-2 { height: 0.5rem; }
+.h-3 { height: 0.75rem; }
+.h-20 { height: 5rem; }
+.h-52 { height: 13rem; }
+.h-60 { height: 15rem; }
+.h-72 { height: 18rem; }
+.h-\[420px\] { height: 420px; }
+.max-h-56 { max-height: 14rem; }
+.max-h-60 { max-height: 15rem; }
+.max-h-\[300px\] { max-height: 300px; }
+.max-h-\[92vh\] { max-height: 92vh; }
+.min-h-\[48px\] { min-height: 48px; }
+.w-1\.5 { width: 0.375rem; } .h-1\.5 { height: 0.375rem; }
+.w-2\.5 { width: 0.625rem; } .h-2\.5 { height: 0.625rem; }
+.w-3\.5 { width: 0.875rem; } .h-3\.5 { height: 0.875rem; }
+.w-4 { width: 1rem; }
+.w-9 { width: 2.25rem; } .h-9 { height: 2.25rem; }
+.w-11 { width: 2.75rem; } .h-11 { height: 2.75rem; }
+.w-14 { width: 3.5rem; }
+.w-32 { width: 8rem; }
+.min-w-0 { min-width: 0; }
+.min-w-\[96px\] { min-width: 96px; }
+.min-w-\[220px\] { min-width: 220px; }
+.max-w-lg { max-width: 32rem; }
+.max-w-\[96px\] { max-width: 96px; }
+.max-w-\[170px\] { max-width: 170px; }
+.max-w-\[175px\] { max-width: 175px; }
+.flex-1 { flex: 1 1 0%; }
+.shrink-0 { flex-shrink: 0; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.col-span-full { grid-column: 1 / -1; }
+.space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.25rem; }
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.375rem; }
+.space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+.space-y-2\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.625rem; }
+.space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+.space-y-3\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.875rem; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+.space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+.space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+.-space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: -0.5rem; }
+.divide-y > :not([hidden]) ~ :not([hidden]) { border-top: 1px solid #e7e5e4; }
+.p-1 { padding: 0.25rem; }
+.p-1\.5 { padding: 0.375rem; }
+.p-2\.5 { padding: 0.625rem; }
+.p-3\.5 { padding: 0.875rem; }
+.p-6 { padding: 1.5rem; }
+.px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+.px-3\.5 { padding-left: 0.875rem; padding-right: 0.875rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+.py-0\.2 { padding-top: 0.1rem; padding-bottom: 0.1rem; }
+.py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.pt-1 { padding-top: 0.25rem; }
+.pt-2 { padding-top: 0.5rem; }
+.pt-2\.5 { padding-top: 0.625rem; }
+.pt-3 { padding-top: 0.75rem; }
+.pb-3 { padding-bottom: 0.75rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pl-3\.5 { padding-left: 0.875rem; }
+.pl-7 { padding-left: 1.75rem; }
+.pr-1 { padding-right: 0.25rem; }
+.pr-4 { padding-right: 1rem; }
+.pr-6 { padding-right: 1.5rem; }
+.mt-0\.5 { margin-top: 0.125rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-1\.5 { margin-top: 0.375rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.25rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-1\.5 { margin-bottom: 0.375rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.ml-1 { margin-left: 0.25rem; }
+.rounded { border-radius: 0.25rem; }
+.rounded-md { border-radius: 0.375rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.border-b { border-bottom: 1px solid #e7e5e4; }
+.border-t { border-top: 1px solid #e7e5e4; }
+.border-stone-100 { border-color: #f5f5f4; }
+.border-stone-200, .border-stone-200\/80, .border-stone-200\/70, .border-stone-200\/60 { border-color: #e7e5e4; }
+.border-stone-300 { border-color: #d6d3d1; }
+.border-stone-600 { border-color: #57534e; }
+.border-stone-700, .border-stone-700\/80 { border-color: #44403c; }
+.border-stone-800 { border-color: #292524; }
+.border-pink-200, .border-pink-200\/80 { border-color: #fbcfe8; }
+.border-pink-300 { border-color: #f9a8d4; }
+.border-rose-100 { border-color: #ffe4e6; }
+.border-rose-200, .border-rose-200\/80 { border-color: #fecdd3; }
+.border-amber-200\/80 { border-color: #fde68a; }
+.bg-white\/95, .bg-white\/90, .bg-white\/85, .bg-white\/80, .bg-white\/70 { background-color: rgba(255,255,255,0.92); }
+.bg-stone-50\/90, .bg-stone-50\/80, .bg-stone-50\/70, .bg-stone-50\/50 { background-color: #fafaf9; }
+.bg-stone-100\/80 { background-color: #f5f5f4; }
+.bg-stone-200 { background-color: #e7e5e4; }
+.bg-stone-700 { background-color: #44403c; }
+.bg-stone-800\/90, .bg-stone-800\/80 { background-color: #292524; }
+.bg-stone-900\/50 { background-color: rgba(28,25,23,0.55); }
+.bg-pink-50, .bg-pink-50\/70, .bg-pink-50\/30 { background-color: #fdf2f8; }
+.bg-pink-100 { background-color: #fce7f3; }
+.bg-pink-500 { background-color: #ec4899; }
+.bg-pink-600 { background-color: #db2777; }
+.bg-rose-50, .bg-rose-50\/30, .bg-rose-50\/20 { background-color: #fff1f2; }
+.bg-rose-100 { background-color: #ffe4e6; }
+.bg-rose-500 { background-color: #f43f5e; }
+.bg-rose-500\/20 { background-color: rgba(244,63,94,0.2); }
+.bg-rose-600 { background-color: #e11d48; }
+.bg-amber-50 { background-color: #fffbeb; }
+.bg-amber-100 { background-color: #fef3c7; }
+.bg-amber-500 { background-color: #f59e0b; }
+.bg-amber-600 { background-color: #d97706; }
+.bg-emerald-50 { background-color: #ecfdf5; }
+.bg-emerald-100 { background-color: #d1fae5; }
+.bg-emerald-500 { background-color: #10b981; }
+.bg-purple-100 { background-color: #f3e8ff; }
+.bg-\[\#e3dacb\] { background-color: #e3dacb; }
+.bg-\[\#e5dccd\]\/90 { background-color: rgba(229,220,205,0.9); }
+.bg-gradient-to-r { background: linear-gradient(90deg, #fdf2f8 0%, #fff1f2 50%, #fffbeb 100%); }
+#styladay-usage-bar { background: linear-gradient(90deg, #1c1917 0%, #db2777 60%, #f59e0b 100%); }
+.text-stone-100 { color: #f5f5f4; }
+.text-stone-300 { color: #d6d3d1; }
+.text-stone-400 { color: #a8a29e; }
+.text-stone-800 { color: #292524; }
+.text-pink-700 { color: #be185d; }
+.text-pink-800 { color: #9d174d; }
+.text-rose-300 { color: #fda4af; }
+.text-rose-400 { color: #fb7185; }
+.text-rose-500 { color: #f43f5e; }
+.text-rose-700 { color: #be123c; }
+.text-rose-800 { color: #9f1239; }
+.text-amber-300 { color: #fcd34d; }
+.text-amber-700 { color: #b45309; }
+.text-amber-800 { color: #92400e; }
+.text-emerald-300 { color: #6ee7b7; }
+.text-emerald-700 { color: #047857; }
+.text-emerald-800 { color: #065f46; }
+.text-purple-800 { color: #6b21a8; }
+.text-\[10px\] { font-size: 10px; }
+.text-\[11px\] { font-size: 11px; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-black { font-weight: 900; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-widest { letter-spacing: 0.1em; }
+.uppercase { text-transform: uppercase; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.truncate, .line-clamp-1 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.whitespace-nowrap { white-space: nowrap; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+.sticky { position: sticky; }
+.top-0 { top: 0; }
+.top-3 { top: 0.75rem; }
+.right-3 { right: 0.75rem; }
+.right-5 { right: 1.25rem; }
+.bottom-5 { bottom: 1.25rem; }
+.-bottom-1 { bottom: -0.25rem; }
+.right-0 { right: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.shadow-xs, .shadow-2xs, .shadow-sm { box-shadow: 0 2px 8px rgba(28, 25, 23, 0.06); }
+.shadow-md { box-shadow: 0 6px 16px rgba(28, 25, 23, 0.1); }
+.shadow-lg, .shadow-xl { box-shadow: 0 12px 28px rgba(28, 25, 23, 0.16); }
+.block { display: block; }
+.select-none { user-select: none; -webkit-user-select: none; }
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+@media (min-width: 768px) {
+.md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+.hidden { display: none !important; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: 0.25rem; }
+.gap-1\.5 { gap: 0.375rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-2\.5 { gap: 0.625rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.w-full { width: 100%; }
+.max-w-7xl { max-width: 80rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.25rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.rounded-xl { border-radius: 0.75rem; }
+.rounded-2xl { border-radius: 1rem; }
+.rounded-3xl { border-radius: 1.5rem; }
+.rounded-full { border-radius: 9999px; }
+.bg-white { background-color: #ffffff; }
+.bg-stone-50 { background-color: #fafaf9; }
+.bg-stone-100 { background-color: #f5f5f4; }
+.bg-stone-900 { background-color: #1c1917; }
+.text-white { color: #ffffff; }
+.text-stone-900 { color: #1c1917; }
+.text-stone-700 { color: #44403c; }
+.text-stone-600 { color: #57534e; }
+.text-stone-500 { color: #78716c; }
+.text-rose-600 { color: #e11d48; }
+.text-pink-600 { color: #db2777; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.border { border: 1px solid #e7e5e4; }
+.cursor-pointer { cursor: pointer; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-30 { z-index: 30; }
+.z-50 { z-index: 50; }
+.overflow-hidden { overflow: hidden; }
+.text-center { text-align: center; }
+.w-6 { width: 1.5rem; } .h-6 { height: 1.5rem; }
+.w-8 { width: 2rem; } .h-8 { height: 2rem; }
+.w-10 { width: 2.5rem; } .h-10 { height: 2.5rem; }
+.w-12 { width: 3rem; } .h-12 { height: 3rem; }
+.w-14 { width: 3.5rem; } .h-14 { height: 3.5rem; }
+.w-16 { width: 4rem; } .h-16 { height: 4rem; }
+.w-20 { width: 5rem; } .h-20 { height: 5rem; }
+.w-24 { width: 6rem; } .h-24 { height: 6rem; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+@media (min-width: 640px) {
+.sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.sm\:text-sm { font-size: 0.875rem; }
+.sm\:text-base { font-size: 1rem; }
+.sm\:text-lg { font-size: 1.125rem; }
+.sm\:text-xl { font-size: 1.25rem; }
+.sm\:p-6 { padding: 1.5rem; }
+.sm\:h-24 { height: 6rem; }
+.sm\:w-24 { width: 6rem; }
+.sm\:w-9 { width: 2.25rem; } .sm\:h-9 { height: 2.25rem; }
+.sm\:inline { display: inline; }
+}
+@media (min-width: 1024px) {
+.lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.lg\:col-span-5 { grid-column: span 5 / span 5; }
+.lg\:col-span-6 { grid-column: span 6 / span 6; }
+.lg\:col-span-7 { grid-column: span 7 / span 7; }
+.lg\:flex-row { flex-direction: row; }
+.lg\:items-center { align-items: center; }
+}
+@media (min-width: 1280px) {
+.xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+/* 補齊原本由 Tailwind CDN 產生、內建 CSS 缺漏的 class 與互動變體 */
+.object-contain { object-fit: contain; }
+.appearance-none { -webkit-appearance: none; appearance: none; }
+.backdrop-blur-md { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.backdrop-blur-xs, .backdrop-blur-2xs { -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.ring-2 { box-shadow: 0 0 0 2px rgba(28,25,23,0.15); }
+.transition-all { transition: all 0.2s ease; }
+.transition-colors { transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease; }
+.transition-shadow { transition: box-shadow 0.2s ease; }
+.duration-300 { transition-duration: 300ms; }
+.duration-500 { transition-duration: 500ms; }
+.cursor-grab { cursor: grab; }
+.active\:cursor-grabbing:active { cursor: grabbing; }
+.border-emerald-100 { border-color: #d1fae5; }
+.border-emerald-200 { border-color: #a7f3d0; }
+.hover\:bg-white:hover { background-color: #ffffff; }
+.hover\:bg-white\/70:hover { background-color: rgba(255,255,255,0.7); }
+.hover\:bg-white\/30:hover { background-color: rgba(255,255,255,0.3); }
+.hover\:bg-stone-50:hover { background-color: #fafaf9; }
+.hover\:bg-stone-100:hover { background-color: #f5f5f4; }
+.hover\:bg-stone-200:hover { background-color: #e7e5e4; }
+.hover\:bg-stone-700:hover { background-color: #44403c; }
+.hover\:bg-stone-800:hover { background-color: #292524; }
+.hover\:bg-pink-100:hover { background-color: #fce7f3; }
+.hover\:bg-pink-200:hover { background-color: #fbcfe8; }
+.hover\:bg-rose-50:hover { background-color: #fff1f2; }
+.hover\:bg-rose-100:hover { background-color: #ffe4e6; }
+.hover\:bg-emerald-700:hover { background-color: #047857; }
+.hover\:text-white:hover { color: #ffffff; }
+.hover\:text-stone-700:hover { color: #44403c; }
+.hover\:text-stone-900:hover { color: #1c1917; }
+.hover\:text-rose-600:hover { color: #e11d48; }
+.hover\:text-rose-700:hover { color: #be123c; }
+.hover\:text-pink-700:hover { color: #be185d; }
+.hover\:border-stone-400:hover { border-color: #a8a29e; }
+.hover\:border-pink-400:hover { border-color: #f472b6; }
+.hover\:shadow-md:hover { box-shadow: 0 6px 16px rgba(28, 25, 23, 0.1); }
+.focus\:outline-none:focus { outline: none; }
+.focus\:border-stone-400:focus { border-color: #a8a29e; }
+.focus\:ring-2:focus { box-shadow: 0 0 0 2px rgba(28,25,23,0.25); }
+.focus\:ring-stone-900:focus { box-shadow: 0 0 0 2px rgba(28,25,23,0.35); }
+::selection { background-color: #fbcfe8; color: #1c1917; }
+</style>
+<style>
+body {
+font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+background-color: #f6f4f0;
+color: #1c1917;
+}
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #f5f5f4; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 9999px; }
+.tab-active { background-color: #1c1917; color: #ffffff; box-shadow: 0 4px 14px rgba(28, 25, 23, 0.18); }
+.garment-selected { border-color: #ec4899 !important; background-color: #fdf2f8 !important; box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.25); }
+.closet-cabinet { background: linear-gradient(180deg, #ede8df 0%, #f5f2eb 100%); border: 8px solid #d8cfc2; box-shadow: inset 0 8px 24px rgba(0, 0, 0, 0.06), 0 10px 25px rgba(28, 25, 23, 0.06); }
+.closet-shelf { position: relative; padding-top: 26px; padding-bottom: 14px; border-bottom: 10px solid #d5cab8; background: linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(255,255,255,0.25) 30%, rgba(0,0,0,0.02) 100%); }
+.closet-rod { position: absolute; top: 14px; left: 0; right: 0; height: 6px; background: linear-gradient(180deg, #d4d4d8 0%, #71717a 60%, #a1a1aa 100%); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); z-index: 1; }
+.hanger-hook { width: 14px; height: 14px; border: 2.5px solid #71717a; border-bottom: none; border-left: none; border-radius: 50% 50% 0 0; margin: 0 auto -2px auto; transform: rotate(-35deg); position: relative; z-index: 2; }
+.hanger-shoulder { width: 48px; height: 8px; border-top: 3px solid #a16207; border-left: 3px solid #a16207; border-right: 3px solid #a16207; border-radius: 8px 8px 0 0; margin: 0 auto -3px auto; position: relative; z-index: 2; }
+.cutout-card { filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.1)); transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.cutout-card:hover { transform: translateY(-4px) scale(1.04); z-index: 10; }
+.checkerboard-bg { background-color: #ffffff; background-image: linear-gradient(45deg, #f1f5f9 25%, transparent 25%), linear-gradient(-45deg, #f1f5f9 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f1f5f9 75%), linear-gradient(-45deg, transparent 75%, #f1f5f9 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<noscript><div style="padding:16px;margin:16px;border:2px solid #e11d48;border-radius:12px;background:#fff1f2;color:#9f1239;font-weight:700;text-align:center;">ＳＴＹＬＡＤＡＹ 需要啟用 JavaScript 才能使用電子衣櫥、穿搭日記與本機儲存功能，請在瀏覽器設定中開啟 JavaScript 後重新整理。</div></noscript>
+<div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200/90">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-stone-900 text-white flex items-center justify-center font-bold text-xl shadow-md relative">
+🐈‍⬛
+<span class="absolute -top-1 -right-1 text-xs">🎀</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="text-base sm:text-lg font-extrabold tracking-widest text-stone-900">ＳＴＹＬＡＤＡＹ</h1>
+<span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 border border-pink-200">🎀 脆上爆紅電子衣櫥</span>
+</div>
+<p class="text-xs text-stone-500">穿搭快拍：我的穿搭日記・分層掛衣桿・附魔去背・不會穿雷區分析</p>
+</div>
+</div>
+<nav class="flex flex-wrap items-center gap-1 bg-stone-100 p-1 rounded-2xl border border-stone-200" role="tablist" aria-label="主要功能分頁">
+<button type="button" role="tab" aria-selected="true" data-tab="closet" class="nav-tab tab-active px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5"><span>👗</span> 電子衣櫥 <span id="nav-closet-count" class="px-1.5 py-0.2 bg-stone-700 text-white rounded-full text-[10px]">0</span></button>
+<button type="button" role="tab" aria-selected="false" data-tab="log" class="nav-tab px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-stone-600 hover:text-stone-900 transition-all flex items-center gap-1.5"><span>🗓️</span> 穿搭月曆與日記</button>
+<button type="button" role="tab" aria-selected="false" data-tab="canvas" class="nav-tab px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-stone-600 hover:text-stone-900 transition-all flex items-center gap-1.5"><span>✨</span> 自由畫板 &amp; 附魔去背</button>
+<button type="button" role="tab" aria-selected="false" data-tab="analytics" class="nav-tab px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-stone-600 hover:text-stone-900 transition-all flex items-center gap-1.5"><span>📊</span> 數據與不會穿診斷 <span id="nav-neglected-badge" class="px-1.5 py-0.2 bg-rose-100 text-rose-700 rounded-full text-[10px] font-bold">0</span></button>
+<button type="button" role="tab" aria-selected="false" data-tab="trends" class="nav-tab px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-stone-600 hover:text-stone-900 transition-all flex items-center gap-1.5"><span>🔥</span> 2026 流行穿搭建議</button>
+</nav>
+<div class="flex flex-wrap items-center gap-2">
+<span id="memory-status-badge" class="px-2.5 py-1 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-800 text-[11px] font-bold flex items-center gap-1" title="所有新增的衣服與穿搭日記皆會自動儲存在手機本機記憶中"><span>💾</span> 自動記憶開啟中</span>
+<button type="button" id="btn-open-backup" class="px-2.5 py-1.5 rounded-xl bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-800 text-xs font-bold transition-colors">📦 備份/還原記憶</button>
+<button type="button" id="btn-open-add-item" class="px-3.5 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1.5 shadow-sm"><span>✨</span> 為單品附魔 (新增衣物)</button>
+<button type="button" id="btn-reset-demo" class="px-2.5 py-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600 text-xs font-medium transition-colors" title="清空所有衣物與穿搭紀錄">清空資料</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 space-y-6">
+<section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+<div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-xs flex items-start justify-between">
+<div>
+<p class="text-xs font-semibold text-stone-500">衣櫥使用率 (本月活化)</p>
+<div class="flex items-baseline gap-2 mt-1">
+<p id="kpi-usage-rate" class="text-2xl font-extrabold text-stone-900">0%</p>
+<span id="kpi-total-items" class="text-xs font-semibold text-stone-500">0 件</span>
+</div>
+<p id="kpi-total-value" class="text-xs text-stone-500 mt-1">共 0 件單品・穿過 0 件</p>
+</div>
+<span class="w-9 h-9 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">🎀</span>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-xs flex items-start justify-between">
+<div>
+<p class="text-xs font-semibold text-stone-500">最常穿色系 &amp; 主力單品</p>
+<p id="kpi-logged-days" class="text-xl font-extrabold text-stone-900 mt-1">0 天日記</p>
+<p id="kpi-most-worn-item" class="text-xs text-emerald-700 font-semibold mt-1 truncate max-w-[175px]">最常穿：-</p>
+</div>
+<span class="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-lg">🎨</span>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-rose-200/80 shadow-xs flex items-start justify-between">
+<div>
+<p class="text-xs font-semibold text-rose-700">你最不會穿的衣服類型</p>
+<p id="kpi-worst-type" class="text-lg sm:text-xl font-extrabold text-rose-600 mt-1 truncate max-w-[170px]">-</p>
+<p id="kpi-worst-type-desc" class="text-xs text-stone-500 mt-1">閒置率 0%</p>
+</div>
+<span class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center text-lg">🚫</span>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs flex items-start justify-between">
+<div>
+<p class="text-xs font-semibold text-amber-800">冷宮沒穿過單品預算</p>
+<p id="kpi-wasted-money" class="text-2xl font-extrabold text-amber-700 mt-1">NT$ 0</p>
+<p id="kpi-unworn-count" class="text-xs text-stone-500 mt-1">共 0 件從未穿過/極少穿</p>
+</div>
+<span class="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-lg">💸</span>
+</div>
+</section>
+<section id="view-closet" class="space-y-6">
+<div class="bg-white rounded-2xl border border-stone-200 p-4 shadow-xs space-y-3.5">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 flex-wrap">
+<div class="relative inline-flex items-center">
+<select id="closet-filter-color" aria-label="依顏色篩選" class="appearance-none pl-7 pr-6 py-1.5 rounded-full text-xs font-semibold border border-stone-200 bg-stone-50 text-stone-800 hover:bg-stone-100 focus:outline-none cursor-pointer">
+<option value="ALL">顏色：全部</option>
+<option value="黑色">⬛ 黑色</option>
+<option value="奶油色">🍦 奶油色 / 米色</option>
+<option value="灰色">🐘 灰色</option>
+<option value="白色">⬜ 白色</option>
+<option value="棕色">🧸 棕色 / 大地色</option>
+<option value="丹寧藍">👖 丹寧藍</option>
+<option value="亮色/粉紅">🎀 亮色 / 特殊色</option>
+</select>
+<span class="absolute left-2.5 text-xs pointer-events-none">🎨</span>
+</div>
+<div id="styladay-cat-pills" class="flex flex-wrap items-center gap-1.5">
+<button type="button" data-closet-cat="ALL" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-bold bg-stone-900 text-white transition-all">全部</button>
+<button type="button" data-closet-cat="外套" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">🧥 外套</button>
+<button type="button" data-closet-cat="上衣" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">👚 上衣</button>
+<button type="button" data-closet-cat="下身" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">🩳 下身</button>
+<button type="button" data-closet-cat="連身/洋裝" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">👗 洋裝</button>
+<button type="button" data-closet-cat="鞋履" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">👢 鞋子</button>
+<button type="button" data-closet-cat="配件/包款" class="closet-cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all">👜 包包/配件</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="bg-stone-100 p-1 rounded-xl border border-stone-200 flex items-center gap-1">
+<button type="button" id="btn-mode-rack" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-stone-900 shadow-xs">🪜 掛衣架模式</button>
+<button type="button" id="btn-mode-grid" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900">🗂️ 卡片詳情</button>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-stone-100">
+<div class="relative flex-1 min-w-[220px]">
+<input type="text" id="closet-search" placeholder="🔍 搜尋你的衣櫥......（例如：百褶裙、西裝外套、短靴、露背洋裝）" class="w-full pl-3.5 pr-4 py-1.5 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-stone-400" />
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<select id="closet-filter-category" class="hidden">
+<option value="ALL">所有大分類</option>
+<option value="上衣">上衣</option>
+<option value="下身">下身</option>
+<option value="外套">外套</option>
+<option value="連身/洋裝">連身/洋裝</option>
+<option value="鞋履">鞋履</option>
+<option value="配件/包款">配件/包款</option>
+</select>
+<select id="closet-filter-status" aria-label="依穿著狀態篩選" class="px-3 py-1.5 text-xs border border-stone-200 rounded-xl bg-stone-50 text-stone-700 font-medium focus:outline-none">
+<option value="ALL">所有穿著狀態</option>
+<option value="UNWORN">🚨 從未穿過 (0天)</option>
+<option value="RARE">⚠️ 極少穿 (1天)</option>
+<option value="FREQUENT">✅ 常穿主力 (2+天)</option>
+</select>
+<select id="closet-sort" aria-label="衣櫥排序方式" class="px-3 py-1.5 text-xs border border-stone-200 rounded-xl bg-stone-50 text-stone-700 font-medium focus:outline-none">
+<option value="wear_desc">排序：穿過天數（多 → 少）</option>
+<option value="wear_asc">排序：穿過天數（少 → 多・找冷宮）</option>
+<option value="cpw_desc">排序：單次成本 CPW（高 → 低）</option>
+<option value="price_desc">排序：購買價格（高 → 低）</option>
+</select>
+</div>
+</div>
+</div>
+<div id="closet-rack-wrapper" class="closet-cabinet rounded-3xl overflow-hidden">
+<div class="bg-[#e3dacb] px-5 py-2.5 flex items-center justify-between border-b border-[#d0c4b2]">
+<div class="flex items-center gap-2">
+<span class="text-xs font-extrabold tracking-wider text-stone-800">🎀 ＳＴＹＬＡＤＡＹ 實體感三層掛衣櫥</span>
+<span class="text-[11px] text-stone-600 hidden sm:inline">— 點擊單品可加入今日穿搭或編輯詳情；標示紅字「0天」代表買了還沒穿過！</span>
+</div>
+<span class="text-[11px] font-semibold text-stone-700 bg-white/70 px-2.5 py-0.5 rounded-full">已附魔去背圖示</span>
+</div>
+<div id="closet-rack-tiers" class="divide-y divide-[#d5cab8]"></div>
+</div>
+<div id="closet-grid-wrapper" class="hidden bg-white rounded-2xl border border-stone-200 shadow-xs p-5">
+<div id="closet-items-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+</div>
+</section>
+<section id="view-log" class="hidden space-y-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-6 bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div class="flex items-center justify-between border-b border-stone-100 pb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-stone-900 text-white flex items-center justify-center text-sm">📱</div>
+<div>
+<h2 class="text-base font-extrabold text-stone-900">穿搭月曆日記 (Calendar View)</h2>
+<p class="text-xs text-stone-500">點擊月曆格子即可查看或記錄當天全身穿搭微縮圖</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-stone-100 px-2.5 py-1 rounded-xl">
+<button type="button" id="btn-prev-month" aria-label="上一個月" class="px-2 py-0.5 text-xs font-bold text-stone-700 hover:bg-white rounded-lg">◀</button>
+<span id="calendar-month-label" class="text-xs sm:text-sm font-extrabold text-stone-900 min-w-[96px] text-center"></span>
+<button type="button" id="btn-next-month" aria-label="下一個月" class="px-2 py-0.5 text-xs font-bold text-stone-700 hover:bg-white rounded-lg">▶</button>
+</div>
+</div>
+<div class="grid grid-cols-7 text-center text-[11px] font-bold text-stone-400 uppercase tracking-wider">
+<div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+</div>
+<div id="styladay-calendar-grid" class="grid grid-cols-7 gap-1.5 sm:gap-2"></div>
+<div class="bg-gradient-to-r from-pink-50 via-rose-50/70 to-amber-50/50 rounded-2xl border border-pink-200/80 p-3.5 flex items-center justify-between gap-3">
+<div>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-pink-800 bg-pink-100 px-2 py-0.5 rounded-full">🎀 拯救冷宮單品挑戰</span>
+<h3 class="text-xs sm:text-sm font-bold text-stone-900 mt-1" id="challenge-title">試著把被遺忘的衣服穿出門吧！</h3>
+<p class="text-[11px] text-stone-600 mt-0.5" id="challenge-desc">正在計算您最少穿的單品...</p>
+</div>
+<button type="button" id="btn-try-challenge-item" class="px-3 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold whitespace-nowrap transition-colors shrink-0">加入今日穿搭</button>
+</div>
+</div>
+<div class="lg:col-span-6 space-y-5">
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3 border-b border-stone-100 pb-3">
+<div>
+<h2 class="text-base font-extrabold text-stone-900 flex items-center gap-2"><span>✨</span> 記錄當日穿搭 (OOTD 快拍)</h2>
+<p class="text-xs text-stone-500">點選衣櫃單品組合全身穿搭，月曆會自動生成立體微縮圖</p>
+</div>
+<div class="flex items-center gap-1.5">
+<label for="log-date-input" class="text-xs font-semibold text-stone-600">日期：</label>
+<input type="date" id="log-date-input" class="px-2.5 py-1.5 text-xs sm:text-sm border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-stone-900 bg-stone-50 font-bold" />
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-stone-600 mb-1.5">當日天氣</label>
+<div id="weather-selector" class="grid grid-cols-4 gap-1">
+<button type="button" data-weather="☀️ 晴朗" class="weather-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-stone-900 text-white transition-all">☀️ 晴朗</button>
+<button type="button" data-weather="⛅ 多雲" class="weather-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">⛅ 多雲</button>
+<button type="button" data-weather="🌧️ 下雨" class="weather-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">🌧️ 下雨</button>
+<button type="button" data-weather="❄️ 寒冷" class="weather-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">❄️ 寒冷</button>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-stone-600 mb-1.5">主要場合</label>
+<div id="occasion-selector" class="grid grid-cols-4 gap-1">
+<button type="button" data-occasion="💼 上班通勤" class="occasion-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-stone-900 text-white transition-all">💼 通勤</button>
+<button type="button" data-occasion="☕ 休閒約會" class="occasion-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">☕ 休閒</button>
+<button type="button" data-occasion="🏃 運動戶外" class="occasion-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">🏃 運動</button>
+<button type="button" data-occasion="🥂 正式聚會" class="occasion-btn px-2 py-1.5 rounded-lg text-xs font-medium border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-all">🥂 正式</button>
+</div>
+</div>
+</div>
+<div class="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-stone-800">全身穿搭預覽 (<span id="selected-garment-count">0</span> 件單品)</span>
+<div class="flex items-center gap-2">
+<button type="button" id="btn-send-to-canvas" class="text-xs font-semibold text-pink-600 hover:text-pink-700">✨ 送去自由畫板排版</button>
+<button type="button" id="btn-clear-selection" class="text-xs text-stone-500 hover:text-rose-600 transition-colors">清空選擇</button>
+</div>
+</div>
+<div id="selected-garments-preview" class="flex flex-wrap gap-2 min-h-[48px] items-center">
+<p class="text-xs text-stone-400">尚未選擇任何衣服，請從下方點選今日穿的單品...</p>
+</div>
+</div>
+<div class="space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div id="log-category-pills" class="flex flex-wrap gap-1">
+<button type="button" data-cat="ALL" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-semibold bg-stone-900 text-white">全部</button>
+<button type="button" data-cat="外套" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">🧥 外套</button>
+<button type="button" data-cat="上衣" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">👚 上衣</button>
+<button type="button" data-cat="下身" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">🩳 下身</button>
+<button type="button" data-cat="連身/洋裝" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">👗 洋裝</button>
+<button type="button" data-cat="鞋履" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">👢 鞋子</button>
+<button type="button" data-cat="配件/包款" class="log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200">👜 包包配件</button>
+</div>
+<input type="text" id="log-search-input" placeholder="搜尋單品..." class="px-2.5 py-1 text-xs border border-stone-200 rounded-lg focus:outline-none w-32 sm:w-40" />
+</div>
+<div id="log-garment-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-60 overflow-y-auto custom-scrollbar pr-1"></div>
+</div>
+<div class="pt-2 border-t border-stone-100 flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center">
+<input type="text" id="log-note-input" placeholder="穿搭日記備註（例如：米色西外配灰色百褶裙超韓系！）" class="flex-1 px-3 py-2 text-xs sm:text-sm border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-stone-900" />
+<button type="button" id="btn-save-outfit" class="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-bold transition-all shadow-sm whitespace-nowrap">💾 儲存穿搭日記</button>
+</div>
+</div>
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-4 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold text-stone-900">📜 近期穿搭日記列表</h3>
+<span id="log-history-count" class="text-xs font-medium text-stone-500">共 0 筆</span>
+</div>
+<div id="outfit-history-list" class="space-y-2 max-h-56 overflow-y-auto custom-scrollbar pr-1"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="view-canvas" class="hidden space-y-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-7 bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-stone-900 text-white">打造完美衣櫥・進階版</span>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-pink-100 text-pink-800">為單品附魔・雲端剪裁</span>
+</div>
+<h2 class="text-base font-extrabold text-stone-900 mt-1.5">🎨 拖曳、縮放任何單品，擺成你喜歡的樣子</h2>
+<p class="text-xs text-stone-500">把去背後的單品放到畫板上自由拖曳比較，看哪件上衣跟下半身最搭！</p>
+</div>
+<div class="flex items-center gap-1.5">
+<button type="button" id="btn-canvas-random" class="px-3 py-1.5 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-bold transition-colors">🎲 隨機靈感穿搭</button>
+<button type="button" id="btn-canvas-save-ootd" class="px-3 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-colors">💾 存為今日穿搭</button>
+<button type="button" id="btn-canvas-clear" class="px-2.5 py-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600 text-xs font-medium">清空畫板</button>
+</div>
+</div>
+<div id="styling-board" class="relative h-[420px] w-full rounded-2xl closet-cabinet overflow-hidden select-none">
+<div class="closet-rod"></div>
+<div class="absolute top-3 right-3 z-20 flex items-center gap-1 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 text-[11px] text-stone-600 font-medium"><span>🔍 點選單品可放大/縮小，按住可自由拖曳位置</span></div>
+<div id="canvas-items-stage" class="relative w-full h-full"></div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 bg-stone-50 px-4 py-2.5 rounded-2xl border border-stone-200">
+<span id="canvas-active-label" class="text-xs font-bold text-stone-700">點選畫板上的單品即可調整大小或層級</span>
+<div class="flex items-center gap-1.5">
+<button type="button" id="btn-canvas-zoom-in" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-xs font-bold text-stone-700">🔍 放大 +</button>
+<button type="button" id="btn-canvas-zoom-out" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-xs font-bold text-stone-700">🔍 縮小 -</button>
+<button type="button" id="btn-canvas-front" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-xs font-semibold text-stone-700">⬆️ 移至最前</button>
+<button type="button" id="btn-canvas-remove-item" class="px-2.5 py-1 rounded-lg bg-rose-50 border border-rose-200 hover:bg-rose-100 text-xs font-semibold text-rose-600">🗑️ 移除</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 space-y-5">
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-3.5">
+<div class="flex items-center justify-between">
+<div>
+<span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[11px] font-bold">🪄 為單品附魔・雲端剪裁</span>
+<h3 class="text-sm sm:text-base font-extrabold text-stone-900 mt-1">把任何衣服照片變成整潔的去背商品圖</h3>
+</div>
+</div>
+<p class="text-xs text-stone-500">上傳你的衣服實拍照，系統會自動去背白底/淺色背景，轉成乾淨的「附魔版」單品圖放進衣櫥！</p>
+<div class="flex items-center gap-3">
+<label for="magic-photo-upload" class="cursor-pointer px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs"><span>📸</span> 上傳衣服照片自動去背</label>
+<input type="file" id="magic-photo-upload" accept="image/*" class="hidden" />
+<span id="magic-upload-status" class="text-xs text-stone-500">支援 JPG / PNG 實拍照</span>
+</div>
+</div>
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-extrabold text-stone-900">👚 點擊衣櫥單品放到自由畫板比較</h3>
+<span class="text-[11px] text-stone-400">可同時擺放多件單品</span>
+</div>
+<div id="canvas-picker-grid" class="grid grid-cols-3 sm:grid-cols-4 gap-2.5 max-h-[300px] overflow-y-auto custom-scrollbar pr-1"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="view-analytics" class="hidden space-y-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-6 bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-stone-100 text-stone-700">🎨 StylaDay 色彩分佈分析</span>
+<h3 id="styladay-top-color-headline" class="text-base sm:text-lg font-extrabold text-stone-900 mt-1.5">這個月你最常穿的是黑色</h3>
+</div>
+<div class="text-right">
+<span id="styladay-top-color-pct" class="text-2xl font-black text-stone-900">0%</span>
+<p id="styladay-top-color-count" class="text-[11px] text-stone-500">穿過 0 次</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+<div id="chart-utilization-doughnut" class="relative h-52 w-full flex items-center justify-center"></div>
+<div id="styladay-color-ranking-list" class="space-y-2"></div>
+</div>
+<div id="utilization-summary-text" class="p-3 rounded-2xl bg-stone-50 border border-stone-200/70 text-xs text-stone-600"></div>
+</div>
+<div class="lg:col-span-6 bg-white rounded-3xl border border-stone-200 shadow-xs p-5 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-center justify-between">
+<div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-pink-100 text-pink-800">📈 StylaDay 衣櫥使用率分析</span>
+<h3 class="text-base sm:text-lg font-extrabold text-stone-900 mt-1.5">衣櫥使用率與最高穿過頻率排行榜</h3>
+</div>
+<div class="text-right">
+<span id="styladay-usage-big" class="text-2xl font-black text-pink-600">0%</span>
+<p id="styladay-usage-sub" class="text-[11px] text-stone-500">共 0 件</p>
+</div>
+</div>
+<div class="w-full h-3 bg-stone-100 rounded-full overflow-hidden mt-3 border border-stone-200/60">
+<div id="styladay-usage-bar" class="h-full bg-gradient-to-r from-stone-900 via-pink-600 to-amber-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-xs font-bold text-stone-500 uppercase tracking-wider">🏆 最高穿過頻率排行榜 (Top 5 常穿愛將)</p>
+<div id="styladay-top-worn-list" class="space-y-2"></div>
+</div>
+</div>
+</div>
+<div class="bg-stone-900 text-stone-100 rounded-3xl p-5 sm:p-6 shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-stone-800 pb-4">
+<div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30">🚨 買了卻不穿！衣櫃雷區類型自動計算報告</span>
+<h2 class="text-lg sm:text-xl font-bold mt-2 text-white">計算結果：哪些衣服的類型是你「根本不會穿」的？</h2>
+<p class="text-xs sm:text-sm text-stone-400 mt-1">系統自動比對你的「電子衣櫥單品總數」與「月曆穿搭紀錄」，為每個類型計算出<strong>閒置率</strong>、<strong>佔衣櫥比 vs 實際穿搭比落差</strong>與<strong>單次穿著成本 (CPW)</strong>。</p>
+</div>
+<div class="bg-stone-800/90 p-3.5 rounded-2xl border border-stone-700 shrink-0 space-y-1.5">
+<label for="neglect-threshold-select" class="block text-xs font-medium text-stone-300">「不會穿 / 冷宮單品」判定標準：</label>
+<select id="neglect-threshold-select" class="w-full px-3 py-1.5 rounded-xl bg-stone-900 border border-stone-600 text-xs text-amber-300 font-semibold focus:outline-none">
+<option value="0">嚴格：穿過天數 = 0 天（買來完全沒穿過）</option>
+<option value="1" selected>標準：穿過天數 ≤ 1 天（含穿一次就冰起來）</option>
+<option value="2">寬鬆：穿過天數 ≤ 2 天（低頻率單品）</option>
+</select>
+</div>
+</div>
+<div id="top-avoid-types-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5"></div>
+</div>
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+<div>
+<h3 class="text-sm sm:text-base font-bold text-stone-900">📉 各類型「衣櫥擁有佔比 vs 實際穿搭佔比」落差圖</h3>
+<p class="text-xs text-stone-500">紅柱（擁有佔比）遠高於綠柱（實際穿搭佔比）的類別，就是你最容易衝動購物卻不會穿的衣服類型</p>
+</div>
+<div id="analytics-dimension-tabs" class="flex items-center gap-1 bg-stone-100 p-1 rounded-xl">
+<button type="button" data-dim="subType" class="dim-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-stone-900 text-white">依款式子類型</button>
+<button type="button" data-dim="style" class="dim-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900">依風格屬性</button>
+<button type="button" data-dim="category" class="dim-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900">依大分類</button>
+<button type="button" data-dim="color" class="dim-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900">依色系</button>
+</div>
+</div>
+<div id="chart-type-comparison" class="w-full space-y-2.5 pt-2"></div>
+</div>
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div>
+<h3 class="text-base font-bold text-stone-900">📋 衣服類型「不會穿指數」與單次成本 (CPW) 診斷表</h3>
+<p class="text-xs text-stone-500">按照不會穿指數由高到低排序，下次逛街前打開這張表就能馬上滅火</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs sm:text-sm">
+<thead>
+<tr class="border-b border-stone-200 text-stone-500 bg-stone-50/80">
+<th class="py-2.5 px-3 font-semibold">衣服類型</th>
+<th class="py-2.5 px-3 font-semibold text-center">衣櫥件數</th>
+<th class="py-2.5 px-3 font-semibold text-center">不會穿件數</th>
+<th class="py-2.5 px-3 font-semibold text-center">閒置率</th>
+<th class="py-2.5 px-3 font-semibold text-center">總穿過天數</th>
+<th class="py-2.5 px-3 font-semibold text-right">投入總金額</th>
+<th class="py-2.5 px-3 font-semibold text-right">平均單次成本 (CPW)</th>
+<th class="py-2.5 px-3 font-semibold">購衣建議診斷</th>
+</tr>
+</thead>
+<tbody id="type-scorecard-tbody" class="divide-y divide-stone-100"></tbody>
+</table>
+</div>
+</div>
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xs p-5 space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<h3 class="text-base font-bold text-stone-900">🕸️ 冷宮單品清單（建議斷捨離或送去自由畫板試搭）</h3>
+<p class="text-xs text-stone-500">以下單品符合您設定的「不會穿」標準，點選「立即穿它」可直接帶入今日穿搭日記</p>
+</div>
+<span id="declutter-list-count" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700">0 件單品</span>
+</div>
+<div id="declutter-items-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+</div>
+</section>
+<section id="view-trends" class="hidden space-y-6">
+<div class="bg-stone-900 text-white rounded-3xl p-5 sm:p-6 shadow-md space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-pink-500 text-white">🔥 2026 秋冬流行趨勢 × 衣櫥智能比對</span>
+<h2 class="text-lg sm:text-xl font-extrabold mt-2">根據最近流行的服飾，用你現有的衣服穿出當季感！</h2>
+<p class="text-xs sm:text-sm text-stone-300 mt-1">系統自動掃描你的電子衣櫥，比對 2026 秋冬 4 大核心穿搭公式，標出「衣櫥已有單品」與「防閒置滅火提醒」，避免跟風買回不會穿的雷品。</p>
+</div>
+<div id="trend-filter-pills" class="flex flex-wrap gap-1.5 bg-stone-800/90 p-1.5 rounded-2xl border border-stone-700">
+<button type="button" data-trend-filter="ALL" class="trend-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-pink-600 text-white">全部流行公式</button>
+<button type="button" data-trend-filter="機能工裝" class="trend-filter-btn px-3 py-1 rounded-xl text-xs font-semibold text-stone-300 hover:text-white">🧥 巴恩風工裝</button>
+<button type="button" data-trend-filter="學院疊穿" class="trend-filter-btn px-3 py-1 rounded-xl text-xs font-semibold text-stone-300 hover:text-white">🧶 V領學院疊穿</button>
+<button type="button" data-trend-filter="異材質混搭" class="trend-filter-btn px-3 py-1 rounded-xl text-xs font-semibold text-stone-300 hover:text-white">👗 薄厚異材質</button>
+<button type="button" data-trend-filter="酒紅美拉德" class="trend-filter-btn px-3 py-1 rounded-xl text-xs font-semibold text-stone-300 hover:text-white">🍷 10%酒紅點綴</button>
+</div>
+</div>
+</div>
+<div id="trends-cards-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+</section>
+</main>
+<div id="modal-garment" role="dialog" aria-modal="true" aria-labelledby="modal-garment-title" class="fixed inset-0 z-50 hidden bg-stone-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+<div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-xl border border-stone-200 space-y-4 max-h-[92vh] overflow-y-auto">
+<div class="flex items-center justify-between border-b border-stone-100 pb-3">
+<div>
+<span class="px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 text-[10px] font-bold">🪄 為單品附魔・雲端剪裁</span>
+<h3 id="modal-garment-title" class="text-base font-extrabold text-stone-900 mt-1">新增衣櫥單品</h3>
+</div>
+<button type="button" id="btn-close-modal" aria-label="關閉新增單品視窗" class="text-stone-400 hover:text-stone-700 text-lg font-bold px-2">✕</button>
+</div>
+<form id="form-garment" class="space-y-3.5">
+<input type="hidden" id="garment-id-input" value="" />
+<input type="hidden" id="garment-cutout-data" value="" />
+<div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/80 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div id="modal-cutout-preview" class="w-14 h-14 rounded-xl checkerboard-bg border border-stone-200 flex items-center justify-center overflow-hidden text-xl">✨</div>
+<div>
+<p class="text-xs font-bold text-stone-800">單品照片自動去背（選填）</p>
+<p class="text-[11px] text-stone-500">可上傳衣服照片自動去背，或直接套用內建向量服飾圖</p>
+</div>
+</div>
+<label for="modal-photo-input" class="cursor-pointer px-3 py-1.5 rounded-xl bg-white border border-stone-300 hover:bg-stone-100 text-xs font-semibold text-stone-700 shrink-0">上傳照片</label>
+<input type="file" id="modal-photo-input" accept="image/*" class="hidden" />
+</div>
+<div>
+<label for="garment-name" class="block text-xs font-semibold text-stone-700 mb-1">單品名稱 *</label>
+<input type="text" id="garment-name" required placeholder="例如：米色西裝外套、黑色細肩帶背心、灰色百褶裙" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-stone-900" />
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label for="garment-category" class="block text-xs font-semibold text-stone-700 mb-1">衣櫥分類 *</label>
+<select id="garment-category" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl bg-white focus:outline-none">
+<option value="外套">🧥 外套</option>
+<option value="上衣">👚 上衣</option>
+<option value="下身">🩳 下身</option>
+<option value="連身/洋裝">👗 連身/洋裝</option>
+<option value="鞋履">👢 鞋子</option>
+<option value="配件/包款">👜 包包/配件</option>
+</select>
+</div>
+<div>
+<label for="garment-subtype" class="block text-xs font-semibold text-stone-700 mb-1">款式子類型（計算不會穿雷區用）*</label>
+<input type="text" id="garment-subtype" list="subtype-suggestions" required placeholder="例如：小禮服/派對洋裝、細跟高跟鞋" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-stone-900" />
+<datalist id="subtype-suggestions">
+<option value="百褶裙/短褲"></option>
+<option value="基礎長袖/棉T"></option>
+<option value="細肩帶背心"></option>
+<option value="休閒西裝/大衣外套"></option>
+<option value="厚底鞋/短靴"></option>
+<option value="日常肩背包/配件"></option>
+<option value="小禮服/派對洋裝"></option>
+<option value="短版/緊身辣妹裝"></option>
+<option value="細跟高跟鞋/過膝靴"></option>
+<option value="墊肩硬挺正裝外套"></option>
+<option value="難照顧真絲/雪紡衫"></option>
+</datalist>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label for="garment-style" class="block text-xs font-semibold text-stone-700 mb-1">風格屬性 *</label>
+<select id="garment-style" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl bg-white focus:outline-none">
+<option value="韓系日常百搭">🎀 韓系日常百搭</option>
+<option value="知性通勤">💼 知性通勤</option>
+<option value="正式禮服/晚宴">🥂 正式禮服/晚宴</option>
+<option value="特殊設計/浮誇">✨ 特殊設計/浮誇</option>
+<option value="運動機能">🏃 運動機能</option>
+<option value="度假浪漫">🏖️ 度假浪漫</option>
+</select>
+</div>
+<div>
+<label for="garment-color" class="block text-xs font-semibold text-stone-700 mb-1">主要色系 (StylaDay 色彩統計) *</label>
+<select id="garment-color" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl bg-white focus:outline-none">
+<option value="黑色">⬛ 黑色</option>
+<option value="奶油色">🍦 奶油色 / 米色</option>
+<option value="灰色">🐘 灰色</option>
+<option value="白色">⬜ 白色</option>
+<option value="棕色">🧸 棕色 / 大地色</option>
+<option value="丹寧藍">👖 丹寧藍</option>
+<option value="亮色/粉紅">🎀 亮色 / 特殊色</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label for="garment-price" class="block text-xs font-semibold text-stone-700 mb-1">購買價格 (NT$)</label>
+<input type="number" id="garment-price" min="0" step="50" value="1280" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl focus:outline-none" />
+</div>
+<div>
+<label for="garment-comfort" class="block text-xs font-semibold text-stone-700 mb-1">穿著舒適/好搭度</label>
+<select id="garment-comfort" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl bg-white focus:outline-none">
+<option value="5">⭐⭐⭐⭐⭐ 極舒適免思考</option>
+<option value="4">⭐⭐⭐⭐ 舒適好搭</option>
+<option value="3">⭐⭐⭐ 普通</option>
+<option value="2">⭐⭐ 需刻意打扮/微憋</option>
+<option value="1">⭐ 難照顧/刺癢/腳痛</option>
+</select>
+</div>
+</div>
+<div>
+<label for="garment-reason" class="block text-xs font-semibold text-stone-700 mb-1">備註 / 少穿原因筆記（選填）</label>
+<input type="text" id="garment-reason" placeholder="例如：穿超過20分鐘腳痛、太浮誇沒場合穿、需要熨燙" class="w-full px-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-xl focus:outline-none" />
+</div>
+<div class="pt-3 border-t border-stone-100 flex items-center justify-end gap-2">
+<button type="button" id="btn-cancel-modal" class="px-4 py-2 rounded-xl border border-stone-200 text-xs sm:text-sm font-medium text-stone-600 hover:bg-stone-50">取消</button>
+<button type="submit" class="px-5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-bold shadow-sm">✨ 完成附魔並存入衣櫥</button>
+</div>
+</form>
+</div>
+</div>
+<div id="modal-backup" role="dialog" aria-modal="true" aria-labelledby="modal-backup-title" class="fixed inset-0 z-50 hidden bg-stone-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+<div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-xl border border-stone-200 space-y-4 max-h-[92vh] overflow-y-auto">
+<div class="flex items-center justify-between border-b border-stone-100 pb-3">
+<div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">💾 雙重本機記憶 ＋ 永久備份代碼</span>
+<h3 id="modal-backup-title" class="text-base font-extrabold text-stone-900 mt-1">衣櫥儲存記憶管理</h3>
+</div>
+<button type="button" id="btn-close-backup" aria-label="關閉備份視窗" class="text-stone-400 hover:text-stone-700 text-lg font-bold px-2">✕</button>
+</div>
+<div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200 space-y-1.5 text-xs text-stone-700">
+<p class="font-bold text-stone-900" id="backup-summary-line">目前記憶狀態：檢測中...</p>
+<p class="text-stone-500">系統已啟用 <strong>LocalStorage + IndexedDB + 視窗記憶</strong> 三重自動儲存。不過若在 App 內嵌預覽視窗重新整理，部分手機系統可能會清除暫存；建議可點下方<strong>「複製記憶代碼」</strong>貼到手機備忘錄，或下載備份檔，隨時一鍵還原！</p>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-stone-800">1. 匯出目前衣櫥記憶</label>
+<div class="flex flex-wrap gap-2">
+<button type="button" id="btn-copy-backup-code" class="px-3.5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold">📋 一鍵複製記憶代碼 (推薦貼到備忘錄)</button>
+<button type="button" id="btn-download-backup-json" class="px-3.5 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-800 text-xs font-bold">📥 下載 .json 備份檔</button>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-stone-100">
+<label for="backup-code-textarea" class="block text-xs font-bold text-stone-800">2. 貼上記憶代碼或上傳備份檔還原</label>
+<textarea id="backup-code-textarea" rows="3" placeholder="在此貼上先前複製的衣櫥記憶代碼..." class="w-full p-2.5 text-xs border border-stone-300 rounded-xl focus:outline-none"></textarea>
+<div class="flex flex-wrap items-center justify-between gap-2">
+<label for="backup-file-input" class="cursor-pointer px-3 py-1.5 rounded-xl border border-stone-300 hover:bg-stone-50 text-xs font-semibold text-stone-700">📂 選擇 .json 備份檔上傳</label>
+<input type="file" id="backup-file-input" accept=".json,application/json" class="hidden" />
+<button type="button" id="btn-restore-backup-code" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-700 text-white text-xs font-bold">✨ 立即還原衣櫥記憶</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+'use strict';
+const STORAGE_KEY = 'styladay_wardrobe_iq_clean_v3';
+/* 優化：以瀏覽器本地時間產生 YYYY-MM-DD，避免 UTC 換算造成的日期偏差 */
+function formatLocalDate(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + day;
+}
+function todayLocalStr() { return formatLocalDate(new Date()); }
+function debounce(fn, wait) {
+  let t = null;
+  return function (...args) { clearTimeout(t); t = setTimeout(() => fn.apply(this, args), wait); };
+}
+const CATEGORY_ICONS = { '外套': '🧥', '上衣': '👚', '下身': '🩳', '連身/洋裝': '👗', '鞋履': '👢', '配件/包款': '👜' };
+const COLOR_HEX = { '黑色': '#27272a', '奶油色': '#eadbc8', '灰色': '#9ca3af', '白色': '#f8fafc', '棕色': '#92400e', '丹寧藍': '#3b82f6', '亮色/粉紅': '#ec4899' };
+const COLOR_STROKE = { '黑色': '#09090b', '奶油色': '#c8b294', '灰色': '#6b7280', '白色': '#cbd5e1', '棕色': '#78350f', '丹寧藍': '#1d4ed8', '亮色/粉紅': '#be185d' };
+function renderGarmentCutoutSVG(g, sizeClass = 'w-20 h-20') {
+  /* 安全：customCutout 只接受 data:image/ 開頭的本機去背圖，其餘一律忽略、改用內建 SVG */
+  if (g.customCutout && typeof g.customCutout === 'string' && g.customCutout.startsWith('data:image/')) {
+    return `<img src="${g.customCutout}" alt="${escapeHtml(g.name)}" class="${sizeClass} object-contain cutout-card mx-auto" />`;
+  }
+  const fill = COLOR_HEX[g.color] || '#d6d3d1';
+  const stroke = COLOR_STROKE[g.color] || '#57534e';
+  const shape = g.shape || guessShape(g);
+  let pathMarkup = '';
+  if (shape === 'blazer') {
+    pathMarkup = `<path d="M26 16 L40 12 L50 28 L60 12 L74 16 L86 36 L76 42 L70 28 L70 84 L30 84 L30 28 L24 42 L14 36 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><path d="M40 12 L50 38 L60 12" fill="none" stroke="${stroke}" stroke-width="2"/><line x1="50" y1="38" x2="50" y2="84" stroke="${stroke}" stroke-width="1.8"/><circle cx="45" cy="52" r="2" fill="${stroke}"/><circle cx="55" cy="52" r="2" fill="${stroke}"/>`;
+  } else if (shape === 'puffer') {
+    pathMarkup = `<rect x="24" y="16" width="52" height="66" rx="12" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/><path d="M24 22 L10 48 L20 54 L26 34" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><path d="M76 22 L90 48 L80 54 L74 34" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="36" x2="76" y2="36" stroke="${stroke}" stroke-width="2"/><line x1="24" y1="54" x2="76" y2="54" stroke="${stroke}" stroke-width="2"/><line x1="24" y1="70" x2="76" y2="70" stroke="${stroke}" stroke-width="2"/>`;
+  } else if (shape === 'coat') {
+    pathMarkup = `<path d="M28 12 L42 10 L50 24 L58 10 L72 12 L84 40 L74 44 L68 26 L72 90 L28 90 L32 26 L26 44 L16 40 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><rect x="30" y="48" width="40" height="5" rx="2" fill="${stroke}" opacity="0.35"/>`;
+  } else if (shape === 'cami') {
+    pathMarkup = `<line x1="36" y1="14" x2="36" y2="30" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/><line x1="64" y1="14" x2="64" y2="30" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/><path d="M30 28 Q50 38 70 28 L72 78 L28 78 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  } else if (shape === 'longsleeve') {
+    pathMarkup = `<path d="M32 16 Q50 22 68 16 L88 46 L78 52 L68 34 L68 78 L32 78 L32 34 L22 52 L12 46 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  } else if (shape === 'pleated_skirt') {
+    pathMarkup = `<rect x="30" y="18" width="40" height="8" rx="2" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/><path d="M30 26 L20 78 L80 78 L70 26 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><line x1="38" y1="26" x2="32" y2="78" stroke="${stroke}" stroke-width="1.6"/><line x1="50" y1="26" x2="50" y2="78" stroke="${stroke}" stroke-width="1.6"/><line x1="62" y1="26" x2="68" y2="78" stroke="${stroke}" stroke-width="1.6"/>`;
+  } else if (shape === 'shorts') {
+    pathMarkup = `<path d="M26 20 L74 20 L78 66 L54 66 L50 42 L46 66 L22 66 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><line x1="26" y1="28" x2="74" y2="28" stroke="${stroke}" stroke-width="2"/>`;
+  } else if (shape === 'pants') {
+    pathMarkup = `<path d="M28 14 L72 14 L76 88 L54 88 L50 38 L46 88 L24 88 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><line x1="28" y1="22" x2="72" y2="22" stroke="${stroke}" stroke-width="2"/>`;
+  } else if (shape === 'dress') {
+    pathMarkup = `<path d="M36 14 L64 14 L68 36 L82 86 L18 86 L32 36 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><path d="M34 36 Q50 40 66 36" fill="none" stroke="${stroke}" stroke-width="2"/>`;
+  } else if (shape === 'boots') {
+    pathMarkup = `<path d="M32 18 L54 18 L56 62 L76 68 L76 82 L28 82 L28 66 L32 60 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/><rect x="28" y="76" width="48" height="7" rx="2" fill="#18181b"/>`;
+  } else if (shape === 'heels') {
+    pathMarkup = `<path d="M24 38 L42 62 L78 66 L82 74 L52 74 L34 56 L30 78 L24 78 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  } else if (shape === 'bag') {
+    pathMarkup = `<path d="M34 36 Q50 8 66 36" fill="none" stroke="${stroke}" stroke-width="3.5" stroke-linecap="round"/><rect x="24" y="34" width="52" height="44" rx="10" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/><circle cx="50" cy="52" r="4" fill="#fbbf24" stroke="${stroke}" stroke-width="1.5"/>`;
+  } else if (shape === 'legwarmers') {
+    pathMarkup = `<rect x="28" y="20" width="18" height="60" rx="6" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/><rect x="54" y="20" width="18" height="60" rx="6" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/>`;
+  } else if (shape === 'belt') {
+    pathMarkup = `<rect x="14" y="42" width="72" height="14" rx="5" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/><path d="M50 55 C42 46 38 38 45 34 C48 32 50 36 50 36 C50 36 52 32 55 34 C62 38 58 46 50 55 Z" fill="#f43f5e" stroke="#881337" stroke-width="1.8"/>`;
+  } else {
+    pathMarkup = `<path d="M30 16 L42 14 Q50 22 58 14 L70 16 L86 34 L74 44 L66 32 L66 80 L34 80 L34 32 L26 44 L14 34 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  }
+  return `<svg viewBox="0 0 100 100" class="${sizeClass} cutout-card mx-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${pathMarkup}</svg>`;
+}
+function guessShape(g) {
+  const text = `${g.name} ${g.subType} ${g.category}`;
+  if (text.includes('西裝外套')) return 'blazer';
+  if (text.includes('羽絨')) return 'puffer';
+  if (text.includes('大衣') || text.includes('風衣')) return 'coat';
+  if (text.includes('背心')) return 'cami';
+  if (text.includes('長袖') || text.includes('毛衣') || text.includes('襯衫')) return 'longsleeve';
+  if (text.includes('百褶裙') || text.includes('窄裙') || text.includes('裙')) return 'pleated_skirt';
+  if (text.includes('短褲')) return 'shorts';
+  if (text.includes('褲')) return 'pants';
+  if (text.includes('洋裝') || text.includes('禮服')) return 'dress';
+  if (text.includes('高跟鞋')) return 'heels';
+  if (text.includes('靴') || text.includes('厚底鞋') || text.includes('鞋')) return 'boots';
+  if (text.includes('襪套')) return 'legwarmers';
+  if (text.includes('腰帶')) return 'belt';
+  if (text.includes('包')) return 'bag';
+  return 'tshirt';
+}
+function getDefaultData() {
+  return { garments: [], logs: [], boardItems: [], neglectThreshold: 1, activeDimension: 'subType', closetViewMode: 'rack' };
+}
+let state = loadState();
+let currentTab = 'closet';
+/* 優化：日期改用瀏覽器本地今天，不再寫死 */
+const _now = new Date();
+let selectedLogDate = formatLocalDate(_now);
+let calendarYear = _now.getFullYear();
+let calendarMonth = _now.getMonth();
+let selectedWeather = '☀️ 晴朗';
+let selectedOccasion = '☕ 休閒約會';
+let selectedGarmentIds = new Set();
+let logCategoryFilter = 'ALL';
+let challengeGarmentId = null;
+let activeBoardInstanceId = null;
+let dragContext = null;
+let storageQuotaWarned = false;
+function normalizeParsedState(parsed) {
+  if (!parsed || !Array.isArray(parsed.garments)) return null;
+  return {
+    garments: parsed.garments,
+    logs: Array.isArray(parsed.logs) ? parsed.logs : [],
+    boardItems: Array.isArray(parsed.boardItems) ? parsed.boardItems : [],
+    neglectThreshold: typeof parsed.neglectThreshold === 'number' ? parsed.neglectThreshold : 1,
+    activeDimension: parsed.activeDimension || 'subType',
+    closetViewMode: parsed.closetViewMode || 'rack'
+  };
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) { const norm = normalizeParsedState(JSON.parse(raw)); if (norm) return norm; }
+    const jsxCloset = localStorage.getItem('styladay_closet_v3');
+    if (jsxCloset) {
+      const garments = JSON.parse(jsxCloset);
+      const logs = JSON.parse(localStorage.getItem('styladay_logs_v3') || '[]');
+      if (Array.isArray(garments) && garments.length > 0) return normalizeParsedState({ garments, logs });
+    }
+  } catch (e) {}
+  try {
+    if (window.name && window.name.startsWith('STYLADAY_MEM:')) {
+      const norm = normalizeParsedState(JSON.parse(window.name.slice('STYLADAY_MEM:'.length)));
+      if (norm) return norm;
+    }
+  } catch (e) {}
+  return getDefaultData();
+}
+function saveToIndexedDB(dataObj) {
+  try {
+    if (!window.indexedDB) return;
+    const req = window.indexedDB.open('StylaDayPermanentDB', 1);
+    req.onupgradeneeded = function(e) { const db = e.target.result; if (!db.objectStoreNames.contains('wardrobe')) db.createObjectStore('wardrobe'); };
+    req.onsuccess = function(e) { const db = e.target.result; const tx = db.transaction('wardrobe', 'readwrite'); tx.objectStore('wardrobe').put(JSON.stringify(dataObj), 'main_state'); };
+  } catch (e) {}
+}
+function loadFromIndexedDB(callback) {
+  try {
+    if (!window.indexedDB) return;
+    const req = window.indexedDB.open('StylaDayPermanentDB', 1);
+    req.onupgradeneeded = function(e) { const db = e.target.result; if (!db.objectStoreNames.contains('wardrobe')) db.createObjectStore('wardrobe'); };
+    req.onsuccess = function(e) {
+      const db = e.target.result;
+      const tx = db.transaction('wardrobe', 'readonly');
+      const getReq = tx.objectStore('wardrobe').get('main_state');
+      getReq.onsuccess = function() {
+        if (getReq.result) {
+          try { const norm = normalizeParsedState(JSON.parse(getReq.result)); if (norm && (norm.garments.length > 0 || norm.logs.length > 0)) callback(norm); } catch (err) {}
+        }
+      };
+    };
+  } catch (e) {}
+}
+function updateMemoryBadge() {
+  const badge = document.getElementById('memory-status-badge');
+  const summary = document.getElementById('backup-summary-line');
+  const gCount = (state.garments || []).length;
+  const lCount = (state.logs || []).length;
+  if (badge) badge.innerHTML = `<span>💾</span> 已自動記憶 (${gCount}件衣物 · ${lCount}筆日記)`;
+  if (summary) summary.textContent = `目前記憶狀態：已儲存 ${gCount} 件衣物、${lCount} 筆穿搭日記（自動同步至本機記憶）`;
+}
+function saveState() {
+  const serialized = JSON.stringify(state);
+  try {
+    localStorage.setItem(STORAGE_KEY, serialized);
+    storageQuotaWarned = false;
+  } catch (e) {
+    /* 優化：localStorage 配額不足時不再靜默失敗，提醒使用者匯出備份 */
+    if (!storageQuotaWarned) {
+      storageQuotaWarned = true;
+      showToast('⚠️ 本機儲存空間不足，最新變更可能未存入 LocalStorage！請到「備份/還原記憶」匯出備份檔保存。', 'warning');
+    }
+  }
+  try { window.name = 'STYLADAY_MEM:' + serialized; } catch (e) {}
+  saveToIndexedDB(state);
+  updateMemoryBadge();
+}
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  const bgClass = type === 'error' ? 'bg-rose-600' : type === 'warning' ? 'bg-amber-600' : 'bg-stone-900';
+  toast.className = `${bgClass} text-white px-4 py-2.5 rounded-2xl shadow-lg text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all duration-300 pointer-events-auto`;
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2600);
+}
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+function autoCutoutImageFile(file, callback) {
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      /* 優化：壓縮上限 260px → 512px，去背邊緣與衣物細節更清楚；代價是 data URL 約變大，
+         localStorage 更容易額滿，因此 saveState 已加上配額不足提醒（見 REVIEW.md） */
+      const maxDim = 512;
+      const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      try {
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const d = imgData.data;
+        const bgR = d[0], bgG = d[1], bgB = d[2];
+        for (let i = 0; i < d.length; i += 4) {
+          const r = d[i], g = d[i + 1], b = d[i + 2];
+          const diff = Math.abs(r - bgR) + Math.abs(g - bgG) + Math.abs(b - bgB);
+          const isNearWhite = r > 238 && g > 238 && b > 238;
+          if (diff < 38 || isNearWhite) d[i + 3] = 0;
+        }
+        ctx.putImageData(imgData, 0, 0);
+      } catch (e) {}
+      callback(canvas.toDataURL('image/png'));
+    };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function computeMetrics() {
+  const wearMap = {}; const lastWornMap = {};
+  state.garments.forEach(g => { wearMap[g.id] = 0; lastWornMap[g.id] = null; });
+  const sortedLogs = [...state.logs].sort((a, b) => a.date.localeCompare(b.date));
+  sortedLogs.forEach(log => { (log.items || []).forEach(gid => { if (wearMap[gid] !== undefined) { wearMap[gid] += 1; lastWornMap[gid] = log.date; } }); });
+  const threshold = Number(state.neglectThreshold);
+  const enrichedGarments = state.garments.map(g => {
+    const wears = wearMap[g.id] || 0;
+    const cpw = wears > 0 ? Math.round(g.price / wears) : g.price;
+    return { ...g, wears, cpw, lastWorn: lastWornMap[g.id], isNeglected: wears <= threshold };
+  });
+  const totalItems = enrichedGarments.length;
+  const wornAtLeastOnce = enrichedGarments.filter(g => g.wears > 0).length;
+  const usageRate = totalItems > 0 ? Math.round((wornAtLeastOnce / totalItems) * 100) : 0;
+  const totalWearsAll = enrichedGarments.reduce((acc, g) => acc + g.wears, 0);
+  function analyzeByDimension(dimKey) {
+    const groups = {};
+    enrichedGarments.forEach(g => {
+      const key = g[dimKey] || '未分類';
+      if (!groups[key]) groups[key] = { name: key, totalCount: 0, neglectedCount: 0, unwornCount: 0, totalWears: 0, totalCost: 0, wastedCost: 0, comfortSum: 0, reasons: [] };
+      const grp = groups[key];
+      grp.totalCount += 1;
+      if (g.isNeglected) { grp.neglectedCount += 1; grp.wastedCost += Number(g.price || 0); if (g.reason) grp.reasons.push(g.reason); }
+      if (g.wears === 0) grp.unwornCount += 1;
+      grp.totalWears += g.wears;
+      grp.totalCost += Number(g.price || 0);
+      grp.comfortSum += Number(g.comfort || 3);
+    });
+    const list = Object.values(groups).map(grp => {
+      const neglectRate = grp.totalCount > 0 ? Math.round((grp.neglectedCount / grp.totalCount) * 100) : 0;
+      const closetShare = totalItems > 0 ? Math.round((grp.totalCount / totalItems) * 1000) / 10 : 0;
+      const wearShare = totalWearsAll > 0 ? Math.round((grp.totalWears / totalWearsAll) * 1000) / 10 : 0;
+      const shareGap = Math.round((closetShare - wearShare) * 10) / 10;
+      const avgWears = grp.totalCount > 0 ? Math.round((grp.totalWears / grp.totalCount) * 10) / 10 : 0;
+      const avgCpw = grp.totalWears > 0 ? Math.round(grp.totalCost / grp.totalWears) : grp.totalCost;
+      const avoidScore = (neglectRate * 0.65) + (Math.max(0, shareGap) * 1.8) + (grp.unwornCount * 10);
+      return { ...grp, neglectRate, closetShare, wearShare, shareGap, avgWears, avgCpw, avoidScore };
+    });
+    list.sort((a, b) => b.avoidScore - a.avoidScore || b.wastedCost - a.wastedCost);
+    return list;
+  }
+  return { enrichedGarments, totalItems, wornAtLeastOnce, usageRate, totalWearsAll, bySubType: analyzeByDimension('subType'), byStyle: analyzeByDimension('style'), byCategory: analyzeByDimension('category'), byColor: analyzeByDimension('color') };
+}
+let activeTrendFilter = 'ALL';
+const TREND_FORMULAS_2026 = [
+{ id: 'trend_barn_barrel', tag: '機能工裝', badge: '🔥 2026 秋冬搜尋熱度 No.1', title: '巴恩風工裝夾克 (Barn Jacket) × 3D 繭型氣球褲', sourceName: 'UNIQLO 2026 秋冬指南 / udn 女子漾', sourceUrl: 'https://dream.bhuntr.com/article/uniqlo-2026-aw-lifewear', formulaDesc: '短版異材質拼接領工裝夾克 ＋ 合身圓領白T ＋ 高腰 3D 弧形繭型牛仔褲（氣球褲） ＋ 復古薄底德訓鞋', tip: '選擇下擺落在髖骨上方的短版夾克，搭配立體微彎剪裁的氣球褲，能瞬間隱藏假跨寬並拉出上短下長比例。', antiTrap: '避免買過長又厚重的傳統獵裝大衣（台灣天氣極少穿）；若衣櫥已有牛仔外套或防風短夾克，直接配寬褲就能零成本跟上巴恩風！', samplePieces: [
+{ name: '巴恩風拼接領工裝夾克', category: '外套', subType: '休閒西裝/大衣外套', style: '韓系日常百搭', color: '棕色', price: 1690, comfort: 5, shape: 'blazer', keywords: ['工裝', '巴恩', '夾克', '外套', '風衣'] },
+{ name: '合身純棉圓領白T', category: '上衣', subType: '基礎長袖/棉T', style: '韓系日常百搭', color: '白色', price: 590, comfort: 5, shape: 'tshirt', keywords: ['白T', '棉T', 'T恤', '白色上衣', '短袖'] },
+{ name: '3D 繭型弧形牛仔氣球褲', category: '下身', subType: '百褶裙/短褲', style: '韓系日常百搭', color: '丹寧藍', price: 1290, comfort: 5, shape: 'pants', keywords: ['牛仔褲', '繭型', '氣球褲', '寬褲', '長褲'] } ] },
+{ id: 'trend_vneck_preppy', tag: '學院疊穿', badge: '✨ Miu Miu 秀場微趨勢熱潮', title: 'V領針織毛衣疊穿白T × 高腰百褶裙 ＋ 半截堆堆襪', sourceName: 'Vogue Hong Kong 2026 秋冬趨勢', sourceUrl: 'https://www.voguehk.com/zh/article/fashion/all-the-micro-trends-for-this-autumn-winter/', formulaDesc: '寬鬆 V 領針織毛衣（內搭圓領白 T 露出領口） ＋ 灰色高腰百褶裙或西裝短褲 ＋ 厚底樂福鞋配半截襪 ＋ 包包掛飾', tip: '單穿 V 領毛衣容易顯單薄，內疊一件硬挺圓領白 T 露出 1.5cm 白邊，再加一個公仔鎖匙圈掛在常背的肩背包上，立刻充滿層次感。', antiTrap: '不必為了學院風買整套難駕馭的格紋制服套裝！直接拿衣櫥現有的基本款白 T 與針織衫疊穿，實穿率最高。', samplePieces: [
+{ name: '炭灰 V 領寬鬆針織衫', category: '上衣', subType: '基礎長袖/棉T', style: '韓系日常百搭', color: '灰色', price: 1180, comfort: 5, shape: 'longsleeve', keywords: ['針織', '毛衣', 'V領', '長袖'] },
+{ name: '韓系高腰灰色百褶裙', category: '下身', subType: '百褶裙/短褲', style: '韓系日常百搭', color: '灰色', price: 890, comfort: 4, shape: 'pleated_skirt', keywords: ['百褶裙', '短裙', '短褲', 'A字裙'] },
+{ name: '黑色厚底樂福短靴', category: '鞋履', subType: '厚底鞋/短靴', style: '韓系日常百搭', color: '黑色', price: 1580, comfort: 5, shape: 'boots', keywords: ['樂福鞋', '厚底鞋', '短靴', '皮鞋'] } ] },
+{ id: 'trend_soft_blazer_mix', tag: '異材質混搭', badge: '💼 台灣換季早晚溫差救星', title: '薄厚異材質疊穿：垂墜感廓形西裝 × 夏日細肩帶連身裙', sourceName: 'K&J SHINE 2026 秋冬穿搭 / ContentPlatform', sourceUrl: 'https://www.kjshine.com.tw/blogs/news/20261005', formulaDesc: '微寬肩軟呢或垂墜感西裝外套 ＋ 夏天細肩帶背心裙/雪紡長裙 ＋ 皮帶收出 3:7 高腰線 ＋ 短靴', tip: '利用「外挺內柔、外厚內薄」材質反差，把原本準備收進冷宮的夏日細肩帶洋裝或背心當內搭，完美解決台灣忽冷忽熱的氣候。', antiTrap: '千萬別買材質死硬、墊肩過誇張的正裝西外（極易變冷宮雷品）；選擇微垂墜的軟西裝才能日常通勤與約會兩穿。', samplePieces: [
+{ name: '奶油米垂墜感廓形西裝外套', category: '外套', subType: '休閒西裝/大衣外套', style: '知性通勤', color: '奶油色', price: 1880, comfort: 5, shape: 'blazer', keywords: ['西裝外套', '西外', '外套'] },
+{ name: '黑色細肩帶垂墜連身洋裝', category: '連身/洋裝', subType: '細肩帶背心', style: '韓系日常百搭', color: '黑色', price: 1380, comfort: 4, shape: 'dress', keywords: ['洋裝', '連身裙', '細肩帶', '背心', '長裙'] },
+{ name: '復古金釦皮革腰帶', category: '配件/包款', subType: '日常肩背包/配件', style: '知性通勤', color: '黑色', price: 490, comfort: 5, shape: 'belt', keywords: ['腰帶', '皮帶', '配件'] } ] },
+{ id: 'trend_oxblood_maillard', tag: '酒紅美拉德', badge: '🍷 2026 秋冬顯白代表色', title: '90% 美拉德大地色基礎單品 × 10% 深櫻桃酒紅 (Oxblood) 點綴', sourceName: 'K&J SHINE 2026 秋冬流行色指南', sourceUrl: 'https://www.kjshine.com.tw/blogs/news/20261005', formulaDesc: '燕麥奶白或焦糖棕針織上衣 ＋ 黑色或深灰直筒長褲 ＋ 深櫻桃酒紅腋下包或瑪莉珍鞋（10% 點綴法則）', tip: '全身維持 90% 奶油米、深灰、焦糖棕等百搭大地色，只把 10% 的深酒紅放在包包、鞋子或襪子，提亮氣色又高級耐看。', antiTrap: '大面積亮紅色大衣或紅褲子是「穿一次就冰起來」的頭號冷宮常客！想跟上今年酒紅潮，入手小包或配件的 CPW（單次成本）最划算。', samplePieces: [
+{ name: '燕麥奶油色溫柔針織上衣', category: '上衣', subType: '基礎長袖/棉T', style: '韓系日常百搭', color: '奶油色', price: 980, comfort: 5, shape: 'longsleeve', keywords: ['奶油色', '米色', '針織', '上衣'] },
+{ name: '黑色高腰垂墜直筒西裝褲', category: '下身', subType: '百褶裙/短褲', style: '知性通勤', color: '黑色', price: 1180, comfort: 5, shape: 'pants', keywords: ['黑褲', '西裝褲', '直筒褲', '寬褲'] },
+{ name: '深櫻桃酒紅復古肩背包', category: '配件/包款', subType: '日常肩背包/配件', style: '韓系日常百搭', color: '亮色/粉紅', price: 1280, comfort: 5, shape: 'bag', keywords: ['包', '酒紅', '肩背包', '腋下包'] } ] }
+];
+/* 優化：依目前分頁只重繪可見 view，KPI 仍全域更新，避免每次操作都重繪全部 5 個分頁 */
+function renderAll() {
+  const metrics = computeMetrics();
+  renderTopKPIs(metrics);
+  if (currentTab === 'closet') renderClosetView(metrics);
+  else if (currentTab === 'log') renderDailyLogAndCalendarView(metrics);
+  else if (currentTab === 'canvas') renderStylingCanvasView(metrics);
+  else if (currentTab === 'analytics') renderAnalyticsView(metrics);
+  else if (currentTab === 'trends') renderTrendsView(metrics);
+}
+function renderTrendsView(metrics) {
+  const gridEl = document.getElementById('trends-cards-grid');
+  if (!gridEl) return;
+  const { enrichedGarments } = metrics;
+  const filteredTrends = TREND_FORMULAS_2026.filter(t => activeTrendFilter === 'ALL' || t.tag === activeTrendFilter);
+  gridEl.innerHTML = filteredTrends.map(trend => {
+    let matchCount = 0;
+    const piecesHtml = trend.samplePieces.map(piece => {
+      const matchedUserItem = enrichedGarments.find(ug => ug.name === piece.name || (ug.category === piece.category && piece.keywords.some(kw => `${ug.name} ${ug.subType} ${ug.color}`.includes(kw))));
+      if (matchedUserItem) matchCount += 1;
+      return `<div class="p-2.5 rounded-2xl border ${matchedUserItem ? 'border-emerald-200 bg-emerald-50/50' : 'border-stone-200 bg-stone-50'} flex items-center gap-2.5"><div class="w-12 h-12 rounded-xl bg-white border border-stone-200/70 flex items-center justify-center shrink-0">${renderGarmentCutoutSVG(matchedUserItem || piece, 'w-10 h-10')}</div><div class="min-w-0 flex-1"><div class="flex items-center justify-between gap-1"><span class="text-[10px] font-bold px-2 py-0.2 rounded-full ${matchedUserItem ? 'bg-emerald-100 text-emerald-800' : 'bg-stone-200 text-stone-700'}">${matchedUserItem ? '✅ 衣櫥已有可搭單品' : '💡 流行建議單品'}</span><span class="text-[10px] text-stone-500">${escapeHtml(piece.category)}</span></div><p class="text-xs font-bold text-stone-900 truncate mt-0.5">${escapeHtml(matchedUserItem ? matchedUserItem.name : piece.name)}</p></div></div>`;
+    }).join('');
+    return `<div class="bg-white rounded-3xl border border-stone-200 p-5 shadow-xs flex flex-col justify-between gap-4"><div class="space-y-3"><div class="flex flex-wrap items-center justify-between gap-2"><span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-pink-100 text-pink-800">${escapeHtml(trend.badge)}</span><span class="text-xs font-bold ${matchCount > 0 ? 'text-emerald-700' : 'text-stone-500'}">衣櫥契合度：已有 ${matchCount} / ${trend.samplePieces.length} 件</span></div><div><h3 class="text-base font-extrabold text-stone-900">${escapeHtml(trend.title)}</h3><p class="text-xs text-stone-600 mt-1"><strong>穿搭公式：</strong>${escapeHtml(trend.formulaDesc)}</p></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-2">${piecesHtml}</div><div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5 text-xs"><p class="text-stone-800"><strong>✨ 顯瘦與穿搭技巧：</strong>${escapeHtml(trend.tip)}</p><p class="text-rose-700"><strong>🛡️ 防閒置滅火提醒：</strong>${escapeHtml(trend.antiTrap)}</p><p class="text-[11px] text-stone-400 pt-0.5">趨勢來源：<a href="${trend.sourceUrl}" target="_blank" rel="noopener noreferrer" class="underline hover:text-stone-700">${escapeHtml(trend.sourceName)}</a></p></div></div><div class="pt-3 border-t border-stone-100 flex flex-wrap items-center justify-between gap-2"><button type="button" data-board-trend="${trend.id}" class="px-3 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-800 text-xs font-bold transition-colors">🎨 送去自由畫板試擺</button><button type="button" data-try-trend="${trend.id}" class="px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-colors shadow-xs">✨ 一鍵加入衣櫥並配入今日穿搭</button></div></div>`;
+  }).join('');
+}
+function renderTopKPIs(metrics) {
+  const { enrichedGarments, totalItems, wornAtLeastOnce, usageRate, bySubType } = metrics;
+  const neglectedItems = enrichedGarments.filter(g => g.isNeglected);
+  const wastedMoney = neglectedItems.reduce((sum, g) => sum + Number(g.price || 0), 0);
+  document.getElementById('nav-closet-count').textContent = totalItems;
+  updateMemoryBadge();
+  document.getElementById('nav-neglected-badge').textContent = `${neglectedItems.length} 件閒置`;
+  document.getElementById('kpi-usage-rate').textContent = `${usageRate}%`;
+  document.getElementById('kpi-total-items').textContent = `(共 ${totalItems} 件)`;
+  document.getElementById('kpi-total-value').textContent = `這個月穿過 ${wornAtLeastOnce} 件・閒置 ${totalItems - wornAtLeastOnce} 件`;
+  document.getElementById('kpi-logged-days').textContent = `${state.logs.length} 天穿搭`;
+  const mostWorn = [...enrichedGarments].sort((a, b) => b.wears - a.wears)[0];
+  document.getElementById('kpi-most-worn-item').textContent = mostWorn && mostWorn.wears > 0 ? `最常穿：${mostWorn.name} (x${mostWorn.wears})` : '尚無穿搭紀錄';
+  const worstType = bySubType[0];
+  if (worstType && worstType.neglectedCount > 0) {
+    document.getElementById('kpi-worst-type').textContent = worstType.name;
+    document.getElementById('kpi-worst-type-desc').textContent = `閒置率 ${worstType.neglectRate}% (${worstType.neglectedCount}/${worstType.totalCount} 件不穿)`;
+  } else {
+    document.getElementById('kpi-worst-type').textContent = '無明顯雷區 🎉';
+    document.getElementById('kpi-worst-type-desc').textContent = '所有類型皆有穿過';
+  }
+  document.getElementById('kpi-wasted-money').textContent = `NT$ ${wastedMoney.toLocaleString()}`;
+  document.getElementById('kpi-unworn-count').textContent = `共 ${neglectedItems.length} 件穿 ≤ ${state.neglectThreshold} 次`;
+}
+function renderClosetView(metrics) {
+  const { enrichedGarments } = metrics;
+  const catFilter = document.getElementById('closet-filter-category').value;
+  const colorFilter = document.getElementById('closet-filter-color').value;
+  const statusFilter = document.getElementById('closet-filter-status').value;
+  const sortBy = document.getElementById('closet-sort').value;
+  const searchQ = (document.getElementById('closet-search').value || '').trim().toLowerCase();
+  let list = enrichedGarments.filter(g => {
+    if (catFilter !== 'ALL' && g.category !== catFilter) return false;
+    if (colorFilter !== 'ALL' && g.color !== colorFilter) return false;
+    if (statusFilter === 'UNWORN' && g.wears !== 0) return false;
+    if (statusFilter === 'RARE' && g.wears !== 1) return false;
+    if (statusFilter === 'FREQUENT' && g.wears < 2) return false;
+    if (searchQ) { const hay = `${g.name} ${g.subType} ${g.style} ${g.color} ${g.reason || ''}`.toLowerCase(); if (!hay.includes(searchQ)) return false; }
+    return true;
+  });
+  list.sort((a, b) => {
+    if (sortBy === 'wear_asc') return a.wears - b.wears || b.price - a.price;
+    if (sortBy === 'wear_desc') return b.wears - a.wears;
+    if (sortBy === 'cpw_desc') return b.cpw - a.cpw;
+    if (sortBy === 'price_desc') return b.price - a.price;
+    return 0;
+  });
+  const isRack = state.closetViewMode === 'rack';
+  document.getElementById('closet-rack-wrapper').classList.toggle('hidden', !isRack);
+  document.getElementById('closet-grid-wrapper').classList.toggle('hidden', isRack);
+  document.getElementById('btn-mode-rack').className = isRack ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-stone-900 shadow-xs' : 'px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900';
+  document.getElementById('btn-mode-grid').className = !isRack ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-stone-900 shadow-xs' : 'px-2.5 py-1 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900';
+  const rackTiersEl = document.getElementById('closet-rack-tiers');
+  if (list.length === 0) {
+    rackTiersEl.innerHTML = `<div class="closet-shelf px-6 py-12 text-center space-y-3"><div class="closet-rod"></div><p class="text-sm font-bold text-stone-700 pt-2">✨ 你的電子衣櫥目前是空的</p><p class="text-xs text-stone-500">點擊下方按鈕，開始把你的第一件衣服掛進衣櫥吧！</p><div class="pt-1"><button type="button" id="btn-empty-add-garment" class="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-bold shadow-sm">✨ 為第一件單品附魔 (新增衣物)</button></div></div>`;
+  } else {
+    const tierDefs = [
+      { title: '第一層掛桿：外套・洋裝禮服', items: list.filter(g => g.category === '外套' || g.category === '連身/洋裝'), hasHanger: true },
+      { title: '第二層掛桿：日常上衣・背心・長袖', items: list.filter(g => g.category === '上衣'), hasHanger: true },
+      { title: '第三層掛桿：下半身百褶裙・短褲・長褲', items: list.filter(g => g.category === '下身'), hasHanger: true },
+      { title: '底層收納格：鞋子・包包・配件（標記穿過天數）', items: list.filter(g => g.category === '鞋履' || g.category === '配件/包款'), hasHanger: false }
+    ].filter(t => t.items.length > 0);
+    rackTiersEl.innerHTML = tierDefs.map(tier => `<div class="closet-shelf px-4 sm:px-6">${tier.hasHanger ? '<div class="closet-rod"></div>' : ''}<div class="flex items-center justify-between mb-2 relative z-10"><span class="text-[11px] font-bold text-stone-600 bg-[#e5dccd]/90 px-2.5 py-0.5 rounded-full">${tier.title} (${tier.items.length})</span></div><div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 relative z-10 pt-1">${tier.items.map(g => {
+      const wearBadge = g.wears === 0 ? 'bg-rose-600 text-white' : g.wears === 1 ? 'bg-amber-500 text-white' : 'bg-stone-900 text-white';
+      return `<div class="group flex flex-col items-center text-center p-2 rounded-2xl hover:bg-white/70 transition-all">${tier.hasHanger ? '<div class="hanger-hook"></div><div class="hanger-shoulder"></div>' : ''}<div class="relative cursor-pointer" data-edit-garment="${g.id}" title="點擊編輯：${escapeHtml(g.name)}">${renderGarmentCutoutSVG(g, 'w-20 h-20 sm:w-24 sm:h-24')}<span class="absolute -bottom-1 right-0 px-2 py-0.5 rounded-full text-[10px] font-extrabold shadow-xs ${wearBadge}">${g.wears === 0 ? '0天 未穿!' : `穿過 ${g.wears} 天`}</span></div><p class="text-xs font-bold text-stone-900 mt-2 line-clamp-1">${escapeHtml(g.name)}</p><p class="text-[10px] text-stone-500">${escapeHtml(g.subType)}</p><div class="flex flex-wrap items-center justify-center gap-1 mt-1.5"><button type="button" data-quick-wear="${g.id}" class="px-2 py-0.5 rounded-md bg-pink-600 hover:bg-pink-700 text-white text-[10px] font-bold shadow-2xs" title="直接記錄今天穿了這件 (+1天)">⚡今天穿+1</button><button type="button" data-wear-today="${g.id}" class="px-2 py-0.5 rounded-md bg-stone-900 hover:bg-stone-700 text-white text-[10px] font-semibold">配整套</button><button type="button" data-add-to-board="${g.id}" class="px-2 py-0.5 rounded-md bg-pink-100 hover:bg-pink-200 text-pink-800 text-[10px] font-semibold">畫板</button><button type="button" data-edit-garment="${g.id}" class="px-1.5 py-0.5 rounded-md bg-white/90 hover:bg-white text-stone-700 border border-stone-200 text-[10px]">編輯</button></div></div>`;
+    }).join('')}</div></div>`).join('');
+  }
+  const gridEl = document.getElementById('closet-items-grid');
+  if (list.length === 0) {
+    gridEl.innerHTML = `<div class="col-span-full py-12 text-center text-sm text-stone-400">沒有符合篩選條件的衣服單品</div>`;
+  } else {
+    gridEl.innerHTML = list.map(g => {
+      const statusBadge = g.wears === 0 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-100 text-rose-700">🚨 0 天 (從未穿過)</span>` : g.wears === 1 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">⚠️ 僅穿 1 天</span>` : `<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">✅ 穿過 ${g.wears} 天</span>`;
+      const dotColor = COLOR_HEX[g.color] || '#78716c';
+      return `<div class="rounded-2xl border ${g.isNeglected ? 'border-rose-200 bg-rose-50/20' : 'border-stone-200 bg-white'} p-4 shadow-xs flex flex-col justify-between gap-3 hover:shadow-md transition-all"><div class="space-y-2"><div class="flex items-center gap-3"><div class="w-16 h-16 rounded-2xl bg-stone-50 border border-stone-200/70 flex items-center justify-center shrink-0">${renderGarmentCutoutSVG(g, 'w-14 h-14')}</div><div class="min-w-0"><span class="text-[11px] font-semibold text-stone-500">${escapeHtml(g.category)} · ${escapeHtml(g.subType)}</span><h4 class="text-sm font-bold text-stone-900 truncate">${escapeHtml(g.name)}</h4><div class="flex flex-wrap items-center gap-1 mt-1">${statusBadge}</div></div></div><div class="flex flex-wrap items-center gap-1.5 pt-1"><span class="px-2 py-0.5 rounded-full text-[11px] bg-stone-100 text-stone-700">${escapeHtml(g.style)}</span><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-stone-100 text-stone-700"><span class="w-2.5 h-2.5 rounded-full border border-stone-300" style="background-color:${dotColor}"></span>${escapeHtml(g.color)}</span></div>${g.reason ? `<p class="text-xs text-stone-600 bg-stone-100/80 p-2 rounded-xl">💬 ${escapeHtml(g.reason)}</p>` : ''}</div><div class="pt-3 border-t border-stone-100 space-y-2"><div class="flex items-center justify-between text-xs"><span class="text-stone-500">購價：NT$ ${Number(g.price).toLocaleString()}</span><span class="font-bold ${g.cpw >= 1500 ? 'text-rose-600' : 'text-stone-800'}">CPW：NT$ ${g.cpw.toLocaleString()}/次</span></div><div class="flex items-center justify-end gap-1.5 pt-1"><button type="button" data-wear-today="${g.id}" class="px-2.5 py-1 rounded-lg bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold">+ 今日穿搭</button><button type="button" data-edit-garment="${g.id}" class="px-2 py-1 rounded-lg border border-stone-200 hover:bg-stone-100 text-stone-600 text-xs">編輯</button><button type="button" data-delete-garment="${g.id}" class="px-2 py-1 rounded-lg border border-rose-200 hover:bg-rose-50 text-rose-600 text-xs">刪除</button></div></div></div>`;
+    }).join('');
+  }
+}
+function loadDateIntoComposer(dateStr) {
+  selectedLogDate = dateStr;
+  const dateInput = document.getElementById('log-date-input');
+  if (dateInput) dateInput.value = dateStr;
+  const parts = dateStr.split('-');
+  if (parts.length === 3) { calendarYear = parseInt(parts[0], 10); calendarMonth = parseInt(parts[1], 10) - 1; }
+  const existing = state.logs.find(l => l.date === dateStr);
+  if (existing) {
+    selectedWeather = existing.weather || '☀️ 晴朗';
+    selectedOccasion = existing.occasion || '☕ 休閒約會';
+    selectedGarmentIds = new Set(existing.items || []);
+    document.getElementById('log-note-input').value = existing.note || '';
+  } else {
+    selectedGarmentIds = new Set();
+    document.getElementById('log-note-input').value = '';
+  }
+  updateWeatherAndOccasionButtons();
+}
+function updateWeatherAndOccasionButtons() {
+  document.querySelectorAll('.weather-btn').forEach(btn => {
+    const active = btn.dataset.weather === selectedWeather;
+    btn.className = `weather-btn px-2 py-1.5 rounded-lg text-xs font-medium border transition-all ${active ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'}`;
+  });
+  document.querySelectorAll('.occasion-btn').forEach(btn => {
+    const active = btn.dataset.occasion === selectedOccasion;
+    btn.className = `occasion-btn px-2 py-1.5 rounded-lg text-xs font-medium border transition-all ${active ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'}`;
+  });
+}
+function renderDailyLogAndCalendarView(metrics) {
+  const { enrichedGarments } = metrics;
+  const garmentLookup = Object.fromEntries(enrichedGarments.map(g => [g.id, g]));
+  updateWeatherAndOccasionButtons();
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  document.getElementById('calendar-month-label').textContent = `${monthNames[calendarMonth]} ${calendarYear}`;
+  const firstDay = new Date(calendarYear, calendarMonth, 1).getDay();
+  const daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+  const logByDate = Object.fromEntries(state.logs.map(l => [l.date, l]));
+  let calCellsHtml = '';
+  for (let i = 0; i < firstDay; i++) calCellsHtml += `<div class="h-20 sm:h-24 rounded-2xl bg-stone-50/50"></div>`;
+  for (let d = 1; d <= daysInMonth; d++) {
+    const mm = String(calendarMonth + 1).padStart(2, '0');
+    const dd = String(d).padStart(2, '0');
+    const dateStr = `${calendarYear}-${mm}-${dd}`;
+    const log = logByDate[dateStr];
+    const isSelected = dateStr === selectedLogDate;
+    let miniMannequin = '';
+    if (log && log.items && log.items.length > 0) {
+      const itemsObjs = log.items.map(id => garmentLookup[id]).filter(Boolean);
+      const topItem = itemsObjs.find(g => g.category === '上衣' || g.category === '外套' || g.category === '連身/洋裝') || itemsObjs[0];
+      const bottomItem = itemsObjs.find(g => g.category === '下身' || g.category === '鞋履') || itemsObjs[1];
+      miniMannequin = `<div class="flex flex-col items-center justify-center -space-y-2 mt-0.5">${topItem ? renderGarmentCutoutSVG(topItem, 'w-8 h-8 sm:w-9 sm:h-9') : ''}${bottomItem ? renderGarmentCutoutSVG(bottomItem, 'w-7 h-7 sm:w-8 sm:h-8') : ''}</div>`;
+    } else {
+      miniMannequin = `<span class="text-[10px] text-stone-300 mt-4">+</span>`;
+    }
+    calCellsHtml += `<button type="button" data-select-cal-date="${dateStr}" aria-label="選擇 ${dateStr}" class="h-20 sm:h-24 p-1.5 rounded-2xl border text-left flex flex-col justify-between transition-all ${isSelected ? 'border-stone-900 bg-pink-50/70 ring-2 ring-stone-900/15' : log ? 'border-stone-200 bg-stone-50/90 hover:border-stone-400' : 'border-stone-100 bg-white hover:bg-stone-50'}"><div class="flex items-center justify-between w-full"><span class="text-[11px] font-extrabold ${isSelected ? 'text-pink-700' : log ? 'text-stone-900' : 'text-stone-400'}">${d}</span>${log ? `<span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>` : ''}</div><div class="flex-1 flex items-center justify-center w-full overflow-hidden">${miniMannequin}</div></button>`;
+  }
+  document.getElementById('styladay-calendar-grid').innerHTML = calCellsHtml;
+  const previewEl = document.getElementById('selected-garments-preview');
+  const countEl = document.getElementById('selected-garment-count');
+  const selectedItems = enrichedGarments.filter(g => selectedGarmentIds.has(g.id));
+  countEl.textContent = selectedItems.length;
+  if (selectedItems.length === 0) {
+    previewEl.innerHTML = `<p class="text-xs text-stone-400">尚未選擇任何衣服，請從下方點選今日穿的單品...</p>`;
+  } else {
+    previewEl.innerHTML = selectedItems.map(item => `<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white border border-pink-300 shadow-2xs text-xs font-semibold text-stone-800"><div class="w-6 h-6 shrink-0">${renderGarmentCutoutSVG(item, 'w-6 h-6')}</div><span>${escapeHtml(item.name)}</span><button type="button" data-remove-selected="${item.id}" aria-label="移除 ${escapeHtml(item.name)}" class="text-stone-400 hover:text-rose-600 font-bold ml-1">✕</button></div>`).join('');
+  }
+  const searchVal = (document.getElementById('log-search-input').value || '').trim().toLowerCase();
+  const filtered = enrichedGarments.filter(g => {
+    const matchCat = logCategoryFilter === 'ALL' || g.category === logCategoryFilter;
+    const matchSearch = !searchVal || g.name.toLowerCase().includes(searchVal) || g.subType.toLowerCase().includes(searchVal) || g.style.toLowerCase().includes(searchVal);
+    return matchCat && matchSearch;
+  });
+  const gridEl = document.getElementById('log-garment-grid');
+  if (filtered.length === 0) {
+    gridEl.innerHTML = `<div class="col-span-full py-6 text-center text-xs text-stone-400">找不到符合條件的單品</div>`;
+  } else {
+    gridEl.innerHTML = filtered.map(g => {
+      const isSelected = selectedGarmentIds.has(g.id);
+      const badgeColor = g.wears === 0 ? 'bg-rose-100 text-rose-700' : g.wears <= 1 ? 'bg-amber-100 text-amber-800' : 'bg-stone-100 text-stone-700';
+      return `<button type="button" data-toggle-garment="${g.id}" class="text-left p-2 rounded-xl border border-stone-200 bg-white hover:border-stone-400 transition-all flex items-center gap-2 ${isSelected ? 'garment-selected' : ''}"><div class="w-10 h-10 shrink-0">${renderGarmentCutoutSVG(g, 'w-10 h-10')}</div><div class="min-w-0 flex-1"><p class="text-xs font-bold text-stone-900 truncate">${escapeHtml(g.name)}</p><div class="flex items-center justify-between mt-0.5"><span class="text-[10px] text-stone-500 truncate">${escapeHtml(g.subType)}</span><span class="text-[10px] font-bold px-1.5 py-0.2 rounded-full ${badgeColor}">x${g.wears}</span></div></div></button>`;
+    }).join('');
+  }
+  const unwornCandidates = enrichedGarments.filter(g => g.wears === 0);
+  const rareCandidates = enrichedGarments.filter(g => g.wears === 1);
+  const targetItem = unwornCandidates[0] || rareCandidates[0] || enrichedGarments[0];
+  const challengeBtn = document.getElementById('btn-try-challenge-item');
+  if (targetItem) {
+    challengeGarmentId = targetItem.id;
+    document.getElementById('challenge-title').textContent = `拯救冷宮：${targetItem.name} (${targetItem.subType})`;
+    document.getElementById('challenge-desc').textContent = `購價 NT$ ${targetItem.price.toLocaleString()}，目前穿過 ${targetItem.wears} 次。${targetItem.reason ? '原因：' + targetItem.reason : ''}`;
+    challengeBtn.disabled = false;
+  } else {
+    challengeGarmentId = null;
+    document.getElementById('challenge-title').textContent = '衣櫥所有單品都有穿過！';
+    document.getElementById('challenge-desc').textContent = '繼續保持高衣櫥使用率！';
+    challengeBtn.disabled = true;
+  }
+  const sortedLogs = [...state.logs].sort((a, b) => b.date.localeCompare(a.date));
+  document.getElementById('log-history-count').textContent = `共 ${sortedLogs.length} 筆`;
+  const historyEl = document.getElementById('outfit-history-list');
+  if (sortedLogs.length === 0) {
+    historyEl.innerHTML = `<div class="py-6 text-center text-xs text-stone-400">尚無穿搭日記</div>`;
+  } else {
+    historyEl.innerHTML = sortedLogs.map(log => {
+      const itemsHtml = (log.items || []).map(gid => { const g = garmentLookup[gid]; if (!g) return ''; return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-[11px] font-medium">${CATEGORY_ICONS[g.category] || '👚'} ${escapeHtml(g.name)}</span>`; }).join('');
+      const isCurrentEditing = log.date === selectedLogDate;
+      return `<div class="p-3 rounded-2xl border ${isCurrentEditing ? 'border-pink-300 bg-pink-50/30' : 'border-stone-200 bg-white'} space-y-1.5"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="text-xs font-extrabold text-stone-900">${escapeHtml(log.date)}</span><span class="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">${escapeHtml(log.weather || '')}</span><span class="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">${escapeHtml(log.occasion || '')}</span></div><div class="flex items-center gap-1"><button type="button" data-edit-log="${log.date}" class="text-[11px] text-stone-600 hover:text-stone-900 font-semibold px-1.5 py-0.5 rounded hover:bg-stone-100">載入</button><button type="button" data-delete-log="${log.id}" class="text-[11px] text-rose-500 hover:text-rose-700 font-semibold px-1.5 py-0.5 rounded hover:bg-rose-50">刪除</button></div></div><div class="flex flex-wrap gap-1">${itemsHtml}</div>${log.note ? `<p class="text-[11px] text-stone-500">「${escapeHtml(log.note)}」</p>` : ''}</div>`;
+    }).join('');
+  }
+}
+function renderStylingCanvasView(metrics) {
+  const { enrichedGarments } = metrics;
+  const garmentLookup = Object.fromEntries(enrichedGarments.map(g => [g.id, g]));
+  const stageEl = document.getElementById('canvas-items-stage');
+  if (!state.boardItems || state.boardItems.length === 0) {
+    stageEl.innerHTML = `<div class="h-full flex items-center justify-center text-xs text-stone-500">點擊右側單品即可擺放到自由畫板上拖曳搭配</div>`;
+  } else {
+    stageEl.innerHTML = state.boardItems.map(bi => {
+      const g = garmentLookup[bi.garmentId];
+      if (!g) return '';
+      const isActive = bi.instanceId === activeBoardInstanceId;
+      return `<div data-board-instance="${bi.instanceId}" style="left:${bi.x}px; top:${bi.y}px; transform: scale(${bi.scale || 1}); z-index:${bi.z || 1};" class="absolute cursor-grab active:cursor-grabbing p-1.5 rounded-2xl transition-shadow ${isActive ? 'ring-2 ring-pink-500 bg-white/60 backdrop-blur-2xs' : 'hover:bg-white/30'}">${renderGarmentCutoutSVG(g, 'w-24 h-24')}<span class="block text-center text-[10px] font-bold text-stone-800 bg-white/85 px-1.5 py-0.2 rounded-full shadow-2xs mt-0.5 truncate max-w-[96px]">${escapeHtml(g.name)}</span></div>`;
+    }).join('');
+  }
+  const activeBi = (state.boardItems || []).find(b => b.instanceId === activeBoardInstanceId);
+  const activeGarment = activeBi ? garmentLookup[activeBi.garmentId] : null;
+  document.getElementById('canvas-active-label').textContent = activeGarment ? `目前選中：${activeGarment.name} (縮放 ${(activeBi.scale || 1).toFixed(2)}x)` : '點選畫板上的單品即可調整大小或層級';
+  const pickerEl = document.getElementById('canvas-picker-grid');
+  pickerEl.innerHTML = enrichedGarments.map(g => `<button type="button" data-add-to-board="${g.id}" class="p-2 rounded-2xl border border-stone-200 hover:border-pink-400 bg-stone-50/70 hover:bg-pink-50/30 flex flex-col items-center text-center transition-all">${renderGarmentCutoutSVG(g, 'w-14 h-14')}<span class="text-[11px] font-bold text-stone-800 line-clamp-1 mt-1">${escapeHtml(g.name)}</span><span class="text-[10px] text-stone-400">穿過 ${g.wears} 天</span></button>`).join('');
+}
+function renderAnalyticsView(metrics) {
+  const { enrichedGarments, totalItems, wornAtLeastOnce, usageRate } = metrics;
+  const dimMap = { subType: metrics.bySubType, style: metrics.byStyle, category: metrics.byCategory, color: metrics.byColor };
+  const currentDimList = dimMap[state.activeDimension] || metrics.bySubType;
+  const colorStats = [...metrics.byColor].sort((a, b) => b.totalWears - a.totalWears);
+  const topColor = colorStats[0] || { name: '黑色', wearShare: 0, totalWears: 0 };
+  document.getElementById('styladay-top-color-headline').textContent = `這個月你最常穿的是${topColor.name}`;
+  document.getElementById('styladay-top-color-pct').textContent = `${Math.round(topColor.wearShare)}%`;
+  document.getElementById('styladay-top-color-count').textContent = `穿過 ${topColor.totalWears} 次`;
+  const colorRankEl = document.getElementById('styladay-color-ranking-list');
+  colorRankEl.innerHTML = colorStats.slice(0, 5).map((c, idx) => {
+    const dot = COLOR_HEX[c.name] || '#78716c';
+    return `<div class="flex items-center justify-between text-xs p-2 rounded-xl bg-stone-50 border border-stone-200/60"><div class="flex items-center gap-2"><span class="font-extrabold text-stone-400 w-4">${idx + 1}.</span><span class="w-3.5 h-3.5 rounded-full border border-stone-300 shrink-0" style="background-color:${dot}"></span><span class="font-bold text-stone-900">${escapeHtml(c.name)}</span></div><div class="text-right"><span class="font-extrabold text-stone-900">${Math.round(c.wearShare)}%</span><span class="text-[11px] text-stone-500 ml-1">(穿過 ${c.totalWears} 次)</span></div></div>`;
+  }).join('');
+  document.getElementById('styladay-usage-big').textContent = `${usageRate}%`;
+  document.getElementById('styladay-usage-sub').textContent = `共 ${totalItems} 件單品，這個月穿過 ${wornAtLeastOnce} 件`;
+  document.getElementById('styladay-usage-bar').style.width = `${usageRate}%`;
+  const top5Worn = [...enrichedGarments].sort((a, b) => b.wears - a.wears).slice(0, 5);
+  document.getElementById('styladay-top-worn-list').innerHTML = top5Worn.map((g, i) => `<div class="flex items-center justify-between p-2 rounded-xl bg-stone-50 border border-stone-200/60"><div class="flex items-center gap-2.5 min-w-0"><span class="text-xs font-black text-stone-400 w-4">${i + 1}.</span><div class="w-8 h-8 shrink-0">${renderGarmentCutoutSVG(g, 'w-8 h-8')}</div><div class="truncate"><span class="text-xs font-bold text-stone-900">${escapeHtml(g.name)}</span><span class="text-[11px] text-stone-500 ml-1">(${escapeHtml(g.category)})</span></div></div><span class="px-2.5 py-0.5 rounded-full bg-stone-900 text-white text-xs font-extrabold shrink-0">x${g.wears}</span></div>`).join('');
+  const top3SubTypes = metrics.bySubType.filter(t => t.neglectedCount > 0).slice(0, 3);
+  const topAvoidContainer = document.getElementById('top-avoid-types-container');
+  if (top3SubTypes.length === 0) {
+    topAvoidContainer.innerHTML = `<div class="col-span-full bg-stone-800/80 rounded-2xl p-4 text-center text-sm text-emerald-300">🎉 太棒了！在目前的判定標準下，您的衣櫥沒有任何閒置類型！</div>`;
+  } else {
+    topAvoidContainer.innerHTML = top3SubTypes.map((t, idx) => {
+      const rankLabels = ['🥇 第一名不會穿雷區', '🥈 第二名不會穿雷區', '🥉 第三名不會穿雷區'];
+      const sampleReason = t.reasons[0] || '需要特定場合或難照顧，日常根本不會拿出來穿';
+      return `<div class="bg-stone-800/90 border border-stone-700 rounded-2xl p-4 flex flex-col justify-between gap-3"><div><div class="flex items-center justify-between gap-2"><span class="text-[11px] font-bold text-rose-400">${rankLabels[idx]}</span><span class="px-2 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300">閒置率 ${t.neglectRate}%</span></div><h4 class="text-base font-extrabold text-white mt-1.5">${escapeHtml(t.name)}</h4><p class="text-xs text-stone-300 mt-1">衣櫥有 <strong>${t.totalCount} 件</strong>，其中 <strong>${t.neglectedCount} 件</strong>幾乎不穿（總共只穿過 ${t.totalWears} 天）。</p></div><div class="pt-2.5 border-t border-stone-700/80 space-y-1 text-xs"><p class="text-amber-300 font-semibold">💸 浪費預算：NT$ ${t.wastedCost.toLocaleString()}（平均單次成本 NT$ ${t.avgCpw.toLocaleString()}）</p><p class="text-stone-400 line-clamp-2">🔍 原因診斷：${escapeHtml(sampleReason)}</p></div></div>`;
+    }).join('');
+  }
+  const tbody = document.getElementById('type-scorecard-tbody');
+  tbody.innerHTML = currentDimList.map(item => {
+    let adviceBadge = '';
+    if (item.neglectRate >= 75) adviceBadge = `<span class="px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 font-bold text-xs">🛑 買了不會穿・建議停買與斷捨離</span>`;
+    else if (item.neglectRate >= 40) adviceBadge = `<span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-xs">⚠️ 衝動購物高風險・需先試搭</span>`;
+    else if (item.avgWears >= 2.5) adviceBadge = `<span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-xs">🌟 衣櫥核心主力・值得投資好質感</span>`;
+    else adviceBadge = `<span class="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-xs">👌 正常輪替使用中</span>`;
+    return `<tr class="hover:bg-stone-50/80 transition-colors"><td class="py-3 px-3 font-bold text-stone-900">${escapeHtml(item.name)}</td><td class="py-3 px-3 text-center text-stone-700">${item.totalCount} 件 <span class="text-[11px] text-stone-400">(${item.closetShare}%)</span></td><td class="py-3 px-3 text-center font-bold ${item.neglectedCount > 0 ? 'text-rose-600' : 'text-stone-400'}">${item.neglectedCount} 件</td><td class="py-3 px-3 text-center"><div class="inline-flex items-center gap-1.5"><div class="w-14 h-2 bg-stone-200 rounded-full overflow-hidden"><div class="h-full ${item.neglectRate >= 60 ? 'bg-rose-500' : item.neglectRate >= 30 ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${item.neglectRate}%"></div></div><span class="font-bold ${item.neglectRate >= 60 ? 'text-rose-600' : 'text-stone-700'}">${item.neglectRate}%</span></div></td><td class="py-3 px-3 text-center text-stone-700">${item.totalWears} 天 <span class="text-[11px] text-stone-400">(${item.wearShare}%)</span></td><td class="py-3 px-3 text-right text-stone-700">NT$ ${item.totalCost.toLocaleString()}</td><td class="py-3 px-3 text-right font-bold ${item.avgCpw >= 1500 ? 'text-rose-600' : 'text-stone-800'}">NT$ ${item.avgCpw.toLocaleString()}</td><td class="py-3 px-3">${adviceBadge}</td></tr>`;
+  }).join('');
+  const neglectedItems = enrichedGarments.filter(g => g.isNeglected).sort((a, b) => a.wears - b.wears || b.price - a.price);
+  document.getElementById('declutter-list-count').textContent = `${neglectedItems.length} 件冷宮單品`;
+  const declutterGrid = document.getElementById('declutter-items-grid');
+  if (neglectedItems.length === 0) {
+    declutterGrid.innerHTML = `<div class="col-span-full py-8 text-center text-xs text-stone-400">目前沒有符合條件的冷宮單品！</div>`;
+  } else {
+    declutterGrid.innerHTML = neglectedItems.map(g => `<div class="p-3.5 rounded-2xl border border-rose-200 bg-rose-50/30 flex flex-col justify-between gap-2.5"><div class="flex items-start gap-3"><div class="w-14 h-14 rounded-xl bg-white border border-rose-100 flex items-center justify-center shrink-0">${renderGarmentCutoutSVG(g, 'w-12 h-12')}</div><div class="min-w-0 flex-1"><div class="flex items-center justify-between gap-1"><span class="text-[11px] font-bold text-rose-700 truncate">${escapeHtml(g.subType)}</span><span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-800 shrink-0">穿過 ${g.wears} 天</span></div><h4 class="text-sm font-bold text-stone-900 mt-0.5 truncate">${escapeHtml(g.name)}</h4><p class="text-[11px] text-stone-500">購價 NT$ ${Number(g.price).toLocaleString()} · 舒適 ${'⭐'.repeat(Number(g.comfort || 3))}</p></div></div>${g.reason ? `<p class="text-xs text-stone-600 bg-white/80 p-2 rounded-xl border border-rose-100">原因：${escapeHtml(g.reason)}</p>` : ''}<div class="flex items-center justify-end gap-2 pt-1"><button type="button" data-add-to-board="${g.id}" class="px-2.5 py-1 rounded-lg bg-pink-100 hover:bg-pink-200 text-pink-800 text-xs font-semibold">送去畫板試搭</button><button type="button" data-wear-today="${g.id}" class="px-3 py-1 rounded-lg bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold">立即穿它</button></div></div>`).join('');
+  }
+  const unwornCountSummary = enrichedGarments.filter(g => g.wears === 0).length;
+  const rareCountSummary = enrichedGarments.filter(g => g.wears === 1).length;
+  const summaryEl = document.getElementById('utilization-summary-text');
+  if (summaryEl) summaryEl.innerHTML = `💡 <strong>色彩與不會穿交叉洞察：</strong>你日常穿搭高度集中在<strong>黑色、奶油色與灰色</strong>等基礎百搭色，而衣櫥裡有 <strong>${unwornCountSummary + rareCountSummary} 件</strong>（多為高飽和亮色禮服、細跟高跟鞋、辣妹短版上衣）買來幾乎沒穿過。`;
+  renderAnalyticsCharts(currentDimList, colorStats);
+}
+function renderAnalyticsCharts(dimList, colorStats) {
+  const barContainer = document.getElementById('chart-type-comparison');
+  if (barContainer) {
+    const maxVal = Math.max(35, ...dimList.map(d => Math.max(d.closetShare, d.wearShare)));
+    barContainer.innerHTML = dimList.map(d => {
+      const cWidth = Math.min(100, Math.round((d.closetShare / maxVal) * 100));
+      const wWidth = Math.min(100, Math.round((d.wearShare / maxVal) * 100));
+      const isWarning = d.closetShare > d.wearShare + 3;
+      return `<div class="p-2.5 rounded-2xl bg-stone-50 border border-stone-200"><div class="flex items-center justify-between text-xs mb-1.5"><span class="font-bold text-stone-900">${escapeHtml(d.name)} ${isWarning ? '<span class="text-rose-600 text-[11px] ml-1">⚠️ 買多穿少</span>' : ''}</span><span class="text-[11px] text-stone-500">衣櫥佔比 <strong>${d.closetShare}%</strong> vs 穿搭佔比 <strong>${d.wearShare}%</strong></span></div><div class="space-y-1"><div class="flex items-center gap-2 text-[10px]"><span class="w-16 text-rose-700 font-semibold shrink-0">衣櫥擁有</span><div class="flex-1 h-2.5 bg-stone-200 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:${cWidth}%"></div></div><span class="w-9 text-right font-bold text-rose-600">${d.closetShare}%</span></div><div class="flex items-center gap-2 text-[10px]"><span class="w-16 text-emerald-700 font-semibold shrink-0">實際穿搭</span><div class="flex-1 h-2.5 bg-stone-200 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width:${wWidth}%"></div></div><span class="w-9 text-right font-bold text-emerald-700">${d.wearShare}%</span></div></div></div>`;
+    }).join('');
+  }
+  const doughnutContainer = document.getElementById('chart-utilization-doughnut');
+  if (doughnutContainer) {
+    const total = colorStats.reduce((acc, c) => acc + c.totalWears, 0) || 1;
+    let cumulativePct = 0;
+    const radius = 15.9155;
+    const segments = colorStats.map(c => {
+      const pct = (c.totalWears / total) * 100;
+      const dashArray = `${pct} ${100 - pct}`;
+      const dashOffset = 100 - cumulativePct + 25;
+      cumulativePct += pct;
+      const strokeColor = COLOR_HEX[c.name] || '#78716c';
+      return `<circle cx="21" cy="21" r="${radius}" fill="transparent" stroke="${strokeColor}" stroke-width="6.5" stroke-dasharray="${dashArray}" stroke-dashoffset="${dashOffset}"></circle>`;
+    }).join('');
+    const topC = colorStats[0] || { name: '黑色', wearShare: 0 };
+    doughnutContainer.innerHTML = `<svg viewBox="0 0 42 42" class="w-44 h-44" style="width:170px;height:170px;"><circle cx="21" cy="21" r="${radius}" fill="transparent" stroke="#f5f5f4" stroke-width="6.5"></circle>${segments}<text x="21" y="19.5" text-anchor="middle" font-size="4.2" font-weight="800" fill="#1c1917">${escapeHtml(topC.name)}</text><text x="21" y="25" text-anchor="middle" font-size="5" font-weight="900" fill="#db2777">${Math.round(topC.wearShare)}%</text></svg>`;
+  }
+}
+window.switchTab = function(tabName) {
+  currentTab = tabName;
+  document.querySelectorAll('.nav-tab').forEach(btn => {
+    const active = btn.dataset.tab === tabName;
+    btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    if (active) { btn.classList.add('tab-active'); btn.classList.remove('text-stone-600'); }
+    else { btn.classList.remove('tab-active'); btn.classList.add('text-stone-600'); }
+  });
+  document.getElementById('view-closet').classList.toggle('hidden', tabName !== 'closet');
+  document.getElementById('view-log').classList.toggle('hidden', tabName !== 'log');
+  document.getElementById('view-canvas').classList.toggle('hidden', tabName !== 'canvas');
+  document.getElementById('view-analytics').classList.toggle('hidden', tabName !== 'analytics');
+  const trendsEl = document.getElementById('view-trends');
+  if (trendsEl) trendsEl.classList.toggle('hidden', tabName !== 'trends');
+  renderAll();
+};
+window.openGarmentModal = function(garmentId = null, preloadedCutout = '') {
+  const modal = document.getElementById('modal-garment');
+  const title = document.getElementById('modal-garment-title');
+  const form = document.getElementById('form-garment');
+  const previewBox = document.getElementById('modal-cutout-preview');
+  form.reset();
+  if (garmentId) {
+    const g = state.garments.find(item => item.id === garmentId);
+    if (!g) return;
+    title.textContent = '編輯衣櫥單品';
+    document.getElementById('garment-id-input').value = g.id;
+    document.getElementById('garment-name').value = g.name;
+    document.getElementById('garment-category').value = g.category;
+    document.getElementById('garment-subtype').value = g.subType;
+    document.getElementById('garment-style').value = g.style;
+    document.getElementById('garment-color').value = g.color;
+    document.getElementById('garment-price').value = g.price;
+    document.getElementById('garment-comfort').value = String(g.comfort || 4);
+    document.getElementById('garment-reason').value = g.reason || '';
+    document.getElementById('garment-cutout-data').value = (g.customCutout && g.customCutout.startsWith('data:image/')) ? g.customCutout : '';
+    previewBox.innerHTML = renderGarmentCutoutSVG(g, 'w-12 h-12');
+  } else {
+    title.textContent = '為單品附魔 (新增衣物)';
+    document.getElementById('garment-id-input').value = '';
+    document.getElementById('garment-cutout-data').value = preloadedCutout || '';
+    previewBox.innerHTML = preloadedCutout ? `<img src="${preloadedCutout}" alt="去背預覽" class="w-12 h-12 object-contain" />` : '✨';
+  }
+  modal.classList.remove('hidden');
+};
+window.closeGarmentModal = function() { document.getElementById('modal-garment').classList.add('hidden'); };
+function initStylaDayApp() {
+  if (window.__styladayInitialized) return;
+  window.__styladayInitialized = true;
+  loadDateIntoComposer(selectedLogDate);
+  renderAll();
+  if (state.garments.length === 0 && state.logs.length === 0) {
+    loadFromIndexedDB((restored) => { state = restored; saveState(); renderAll(); showToast('💾 已從手機本機記憶自動載入你的衣櫥資料！'); });
+  }
+  document.querySelectorAll('.nav-tab').forEach(btn => { btn.addEventListener('click', () => switchTab(btn.dataset.tab)); });
+  document.querySelectorAll('.closet-cat-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const cat = pill.dataset.closetCat;
+      document.getElementById('closet-filter-category').value = cat;
+      document.querySelectorAll('.closet-cat-pill').forEach(p => {
+        const active = p.dataset.closetCat === cat;
+        p.className = `closet-cat-pill px-3 py-1.5 rounded-full text-xs transition-all ${active ? 'font-bold bg-stone-900 text-white' : 'font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200'}`;
+      });
+      renderAll();
+    });
+  });
+  document.getElementById('btn-mode-rack').addEventListener('click', () => { state.closetViewMode = 'rack'; saveState(); renderAll(); });
+  document.getElementById('btn-mode-grid').addEventListener('click', () => { state.closetViewMode = 'grid'; saveState(); renderAll(); });
+  ['closet-filter-category', 'closet-filter-color', 'closet-filter-status', 'closet-sort'].forEach(id => { document.getElementById(id).addEventListener('change', () => renderAll()); });
+  /* 優化：搜尋輸入加上 150ms debounce，避免每次鍵入就全頁重繪 */
+  document.getElementById('closet-search').addEventListener('input', debounce(() => renderAll(), 150));
+  document.getElementById('log-search-input').addEventListener('input', debounce(() => renderAll(), 150));
+  document.getElementById('btn-prev-month').addEventListener('click', () => { calendarMonth -= 1; if (calendarMonth < 0) { calendarMonth = 11; calendarYear -= 1; } renderAll(); });
+  document.getElementById('btn-next-month').addEventListener('click', () => { calendarMonth += 1; if (calendarMonth > 11) { calendarMonth = 0; calendarYear += 1; } renderAll(); });
+  document.getElementById('log-date-input').addEventListener('change', (e) => { if (e.target.value) { loadDateIntoComposer(e.target.value); renderAll(); } });
+  document.querySelectorAll('.weather-btn').forEach(btn => { btn.addEventListener('click', () => { selectedWeather = btn.dataset.weather; updateWeatherAndOccasionButtons(); }); });
+  document.querySelectorAll('.occasion-btn').forEach(btn => { btn.addEventListener('click', () => { selectedOccasion = btn.dataset.occasion; updateWeatherAndOccasionButtons(); }); });
+  document.querySelectorAll('.log-cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      logCategoryFilter = btn.dataset.cat;
+      document.querySelectorAll('.log-cat-btn').forEach(b => {
+        const active = b.dataset.cat === logCategoryFilter;
+        b.className = `log-cat-btn px-2.5 py-1 rounded-full text-xs font-medium ${active ? 'bg-stone-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`;
+      });
+      renderAll();
+    });
+  });
+  document.getElementById('btn-clear-selection').addEventListener('click', () => { selectedGarmentIds.clear(); renderAll(); });
+  document.getElementById('btn-send-to-canvas').addEventListener('click', () => {
+    const ids = Array.from(selectedGarmentIds);
+    if (ids.length === 0) { showToast('請先選擇至少 1 件單品再送往自由畫板！', 'warning'); return; }
+    state.boardItems = ids.map((gid, i) => ({ instanceId: 'b_' + Date.now() + '_' + i, garmentId: gid, x: 40 + (i % 3) * 135, y: 45 + Math.floor(i / 3) * 140, scale: 1.05, z: i + 1 }));
+    saveState(); switchTab('canvas'); showToast('已將選中單品送往「自由畫板」排版！');
+  });
+  document.getElementById('btn-save-outfit').addEventListener('click', () => {
+    const dateVal = document.getElementById('log-date-input').value || selectedLogDate;
+    const itemsArr = Array.from(selectedGarmentIds);
+    if (itemsArr.length === 0) { showToast('請至少點選 1 件今天穿的衣服單品！', 'warning'); return; }
+    const noteVal = document.getElementById('log-note-input').value.trim();
+    const existingIdx = state.logs.findIndex(l => l.date === dateVal);
+    if (existingIdx >= 0) {
+      state.logs[existingIdx] = { ...state.logs[existingIdx], weather: selectedWeather, occasion: selectedOccasion, items: itemsArr, note: noteVal };
+      showToast(`已更新 ${dateVal} 的穿搭日記！`);
+    } else {
+      state.logs.push({ id: 'log_' + Date.now(), date: dateVal, weather: selectedWeather, occasion: selectedOccasion, items: itemsArr, note: noteVal });
+      showToast(`已儲存 ${dateVal} 的穿搭日記！月曆微縮圖已更新`);
+    }
+    saveState(); renderAll();
+  });
+  document.getElementById('btn-try-challenge-item').addEventListener('click', () => { if (challengeGarmentId) { selectedGarmentIds.add(challengeGarmentId); renderAll(); showToast('已將冷宮單品加入今日穿搭組合！'); } });
+  document.getElementById('btn-canvas-zoom-in').addEventListener('click', () => { const bi = (state.boardItems || []).find(b => b.instanceId === activeBoardInstanceId); if (bi) { bi.scale = Math.min(1.8, (bi.scale || 1) + 0.12); saveState(); renderAll(); } });
+  document.getElementById('btn-canvas-zoom-out').addEventListener('click', () => { const bi = (state.boardItems || []).find(b => b.instanceId === activeBoardInstanceId); if (bi) { bi.scale = Math.max(0.55, (bi.scale || 1) - 0.12); saveState(); renderAll(); } });
+  document.getElementById('btn-canvas-front').addEventListener('click', () => { const bi = (state.boardItems || []).find(b => b.instanceId === activeBoardInstanceId); if (bi) { const maxZ = Math.max(1, ...state.boardItems.map(x => x.z || 1)); bi.z = maxZ + 1; saveState(); renderAll(); } });
+  document.getElementById('btn-canvas-remove-item').addEventListener('click', () => { state.boardItems = (state.boardItems || []).filter(b => b.instanceId !== activeBoardInstanceId); activeBoardInstanceId = state.boardItems[0]?.instanceId || null; saveState(); renderAll(); });
+  document.getElementById('btn-canvas-clear').addEventListener('click', () => { state.boardItems = []; activeBoardInstanceId = null; saveState(); renderAll(); });
+  document.getElementById('btn-canvas-random').addEventListener('click', () => {
+    const tops = state.garments.filter(g => g.category === '上衣');
+    const bottoms = state.garments.filter(g => g.category === '下身');
+    const outers = state.garments.filter(g => g.category === '外套');
+    const shoes = state.garments.filter(g => g.category === '鞋履');
+    const bags = state.garments.filter(g => g.category === '配件/包款');
+    const pick = arr => arr.length ? arr[Math.floor(Math.random() * arr.length)] : null;
+    const chosen = [pick(outers), pick(tops), pick(bottoms), pick(bags), pick(shoes)].filter(Boolean);
+    state.boardItems = chosen.map((g, idx) => ({ instanceId: 'rand_' + Date.now() + '_' + idx, garmentId: g.id, x: 45 + (idx % 3) * 135, y: 45 + Math.floor(idx / 3) * 145, scale: 1.05, z: idx + 1 }));
+    activeBoardInstanceId = state.boardItems[0]?.instanceId || null;
+    saveState(); renderAll(); showToast('🎲 已在自由畫板生成隨機穿搭靈感！');
+  });
+  document.getElementById('btn-canvas-save-ootd').addEventListener('click', () => {
+    if (!state.boardItems || state.boardItems.length === 0) { showToast('畫板上還沒有單品喔！', 'warning'); return; }
+    selectedGarmentIds = new Set(state.boardItems.map(b => b.garmentId));
+    switchTab('log'); showToast('已將畫板上的單品帶入今日穿搭！點擊「儲存穿搭日記」即可完成');
+  });
+  const boardEl = document.getElementById('styling-board');
+  boardEl.addEventListener('pointerdown', (e) => {
+    const itemEl = e.target.closest('[data-board-instance]');
+    if (!itemEl) return;
+    const instId = itemEl.dataset.boardInstance;
+    activeBoardInstanceId = instId;
+    const bi = (state.boardItems || []).find(b => b.instanceId === instId);
+    if (!bi) return;
+    const maxZ = Math.max(1, ...state.boardItems.map(x => x.z || 1));
+    bi.z = maxZ + 1;
+    dragContext = { instanceId: instId, startX: e.clientX, startY: e.clientY, origX: bi.x, origY: bi.y };
+    itemEl.setPointerCapture(e.pointerId);
+    renderAll();
+  });
+  boardEl.addEventListener('pointermove', (e) => {
+    if (!dragContext) return;
+    const bi = (state.boardItems || []).find(b => b.instanceId === dragContext.instanceId);
+    if (!bi) return;
+    const dx = e.clientX - dragContext.startX;
+    const dy = e.clientY - dragContext.startY;
+    bi.x = Math.max(0, Math.min(boardEl.clientWidth - 90, dragContext.origX + dx));
+    bi.y = Math.max(10, Math.min(boardEl.clientHeight - 90, dragContext.origY + dy));
+    const el = boardEl.querySelector(`[data-board-instance="${bi.instanceId}"]`);
+    if (el) { el.style.left = `${bi.x}px`; el.style.top = `${bi.y}px`; }
+  });
+  boardEl.addEventListener('pointerup', () => { if (dragContext) { dragContext = null; saveState(); } });
+  boardEl.addEventListener('pointercancel', () => { if (dragContext) { dragContext = null; saveState(); } });
+  document.getElementById('magic-photo-upload').addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    document.getElementById('magic-upload-status').textContent = '✨ 正在為單品附魔去背中...';
+    autoCutoutImageFile(file, (dataUrl) => { document.getElementById('magic-upload-status').textContent = '✅ 去背完成！'; openGarmentModal(null, dataUrl); });
+  });
+  document.getElementById('modal-photo-input').addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    autoCutoutImageFile(file, (dataUrl) => {
+      document.getElementById('garment-cutout-data').value = dataUrl;
+      document.getElementById('modal-cutout-preview').innerHTML = `<img src="${dataUrl}" alt="去背預覽" class="w-12 h-12 object-contain" />`;
+      showToast('✨ 單品照片已自動去背附魔！');
+    });
+  });
+  document.getElementById('neglect-threshold-select').addEventListener('change', (e) => { state.neglectThreshold = Number(e.target.value); saveState(); renderAll(); });
+  document.querySelectorAll('.dim-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.activeDimension = btn.dataset.dim;
+      document.querySelectorAll('.dim-btn').forEach(b => {
+        const active = b.dataset.dim === state.activeDimension;
+        b.className = `dim-btn px-2.5 py-1 rounded-lg text-xs font-semibold ${active ? 'bg-stone-900 text-white' : 'text-stone-600 hover:text-stone-900'}`;
+      });
+      saveState(); renderAll();
+    });
+  });
+  const backupModal = document.getElementById('modal-backup');
+  document.getElementById('btn-open-backup').addEventListener('click', () => { updateMemoryBadge(); document.getElementById('backup-code-textarea').value = JSON.stringify(state); backupModal.classList.remove('hidden'); });
+  document.getElementById('btn-close-backup').addEventListener('click', () => { backupModal.classList.add('hidden'); });
+  document.getElementById('btn-copy-backup-code').addEventListener('click', () => {
+    const code = JSON.stringify(state);
+    const ta = document.getElementById('backup-code-textarea');
+    ta.value = code; ta.select();
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code); else document.execCommand('copy');
+      showToast('📋 已複製衣櫥記憶代碼！可貼到手機備忘錄永久保存');
+    } catch (e) { showToast('請長按文字框全選複製記憶代碼'); }
+  });
+  document.getElementById('btn-download-backup-json').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `StylaDay_衣櫥備份_${todayLocalStr()}.json`; a.click();
+    URL.revokeObjectURL(url); showToast('📥 已下載衣櫥記憶備份檔！');
+  });
+  document.getElementById('btn-restore-backup-code').addEventListener('click', () => {
+    const raw = document.getElementById('backup-code-textarea').value.trim();
+    if (!raw) { showToast('請先貼上記憶代碼！', 'warning'); return; }
+    try {
+      const norm = normalizeParsedState(JSON.parse(raw));
+      if (!norm) throw new Error('Invalid format');
+      state = norm; saveState(); renderAll(); backupModal.classList.add('hidden');
+      showToast(`✨ 成功還原 ${state.garments.length} 件衣物與 ${state.logs.length} 筆穿搭日記！`);
+    } catch (err) { showToast('記憶代碼格式不正確，請確認複製完整內容', 'error'); }
+  });
+  document.getElementById('backup-file-input').addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      try {
+        const norm = normalizeParsedState(JSON.parse(evt.target.result));
+        if (!norm) throw new Error('Invalid format');
+        state = norm; saveState(); renderAll(); backupModal.classList.add('hidden');
+        showToast(`✨ 已從備份檔還原 ${state.garments.length} 件衣物！`);
+      } catch (err) { showToast('備份檔案格式有誤', 'error'); }
+    };
+    reader.readAsText(file);
+  });
+  document.getElementById('btn-open-add-item').addEventListener('click', () => openGarmentModal(null));
+  document.getElementById('btn-close-modal').addEventListener('click', closeGarmentModal);
+  document.getElementById('btn-cancel-modal').addEventListener('click', closeGarmentModal);
+  document.getElementById('form-garment').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const editId = document.getElementById('garment-id-input').value;
+    const cutoutData = document.getElementById('garment-cutout-data').value;
+    const payload = {
+      name: document.getElementById('garment-name').value.trim(),
+      category: document.getElementById('garment-category').value,
+      subType: document.getElementById('garment-subtype').value.trim() || '日常單品',
+      style: document.getElementById('garment-style').value,
+      color: document.getElementById('garment-color').value,
+      price: Number(document.getElementById('garment-price').value || 0),
+      comfort: Number(document.getElementById('garment-comfort').value || 4),
+      reason: document.getElementById('garment-reason').value.trim(),
+      customCutout: (cutoutData && cutoutData.startsWith('data:image/')) ? cutoutData : undefined
+    };
+    if (!payload.name) return;
+    if (editId) {
+      const idx = state.garments.findIndex(g => g.id === editId);
+      if (idx >= 0) { const oldShape = state.garments[idx].shape; state.garments[idx] = { ...state.garments[idx], ...payload, shape: oldShape }; showToast(`已更新「${payload.name}」的資料！`); }
+    } else {
+      state.garments.unshift({ id: 'g_' + Date.now(), ...payload });
+      showToast(`✨ 已將「${payload.name}」掛入電子衣櫥！`);
+    }
+    saveState(); closeGarmentModal(); renderAll();
+  });
+  document.getElementById('btn-reset-demo').addEventListener('click', () => {
+    state = getDefaultData();
+    selectedGarmentIds = new Set();
+    saveState();
+    loadDateIntoComposer(todayLocalStr());
+    renderAll();
+    showToast('已清空所有衣櫥與穿搭日記資料！');
+  });
+  document.body.addEventListener('click', (e) => {
+    const emptyAddBtn = e.target.closest('#btn-empty-add-garment');
+    if (emptyAddBtn) { openGarmentModal(null); return; }
+    const calBtn = e.target.closest('[data-select-cal-date]');
+    if (calBtn) { loadDateIntoComposer(calBtn.dataset.selectCalDate); renderAll(); return; }
+    const toggleBtn = e.target.closest('[data-toggle-garment]');
+    if (toggleBtn) { const gid = toggleBtn.dataset.toggleGarment; if (selectedGarmentIds.has(gid)) selectedGarmentIds.delete(gid); else selectedGarmentIds.add(gid); renderAll(); return; }
+    const removeSelectedBtn = e.target.closest('[data-remove-selected]');
+    if (removeSelectedBtn) { selectedGarmentIds.delete(removeSelectedBtn.dataset.removeSelected); renderAll(); return; }
+    const editLogBtn = e.target.closest('[data-edit-log]');
+    if (editLogBtn) { loadDateIntoComposer(editLogBtn.dataset.editLog); renderAll(); showToast(`已載入 ${editLogBtn.dataset.editLog} 的穿搭日記`); return; }
+    const deleteLogBtn = e.target.closest('[data-delete-log]');
+    if (deleteLogBtn) { state.logs = state.logs.filter(l => l.id !== deleteLogBtn.dataset.deleteLog); saveState(); renderAll(); showToast('已刪除該筆穿搭日記'); return; }
+    const quickWearBtn = e.target.closest('[data-quick-wear]');
+    if (quickWearBtn) {
+      const gid = quickWearBtn.dataset.quickWear;
+      const gObj = state.garments.find(x => x.id === gid);
+      /* 優化：目標日期一律使用「目前在日記編輯器選取的日期」（預設為本地今天） */
+      const todayStr = selectedLogDate || todayLocalStr();
+      let existingLog = state.logs.find(l => l.date === todayStr);
+      if (!existingLog) {
+        existingLog = { id: 'log_' + Date.now(), date: todayStr, weather: selectedWeather || '☀️ 晴朗', occasion: selectedOccasion || '☕ 休閒約會', items: [gid], note: '快速打卡穿搭' };
+        state.logs.push(existingLog);
+      } else if (!existingLog.items.includes(gid)) {
+        existingLog.items.push(gid);
+      } else {
+        /* 修正原碼 bug：原碼會用隨機過去日期捏造一筆新 log 灌水穿著天數。
+           改為：當日已記錄就只提示，不新增任何假日期紀錄。 */
+        showToast(`「${gObj ? gObj.name : '這件單品'}」今天已記錄過囉，不重複計算穿著天數。`, 'warning');
+        return;
+      }
+      selectedGarmentIds.add(gid);
+      saveState(); renderAll();
+      showToast(`⚡ 已記錄穿著「${gObj ? gObj.name : '單品'}」！穿過天數 +1`);
+      return;
+    }
+    const trendFilterBtn = e.target.closest('[data-trend-filter]');
+    if (trendFilterBtn) {
+      activeTrendFilter = trendFilterBtn.dataset.trendFilter;
+      document.querySelectorAll('.trend-filter-btn').forEach(b => {
+        const active = b.dataset.trendFilter === activeTrendFilter;
+        b.className = `trend-filter-btn px-3 py-1 rounded-xl text-xs ${active ? 'font-bold bg-pink-600 text-white' : 'font-semibold text-stone-300 hover:text-white'}`;
+      });
+      renderAll(); return;
+    }
+    const findTrendPieces = (tid) => TREND_FORMULAS_2026.find(t => t.id === tid);
+    const ensureTrendGarments = (trend) => {
+      const chosenIds = [];
+      trend.samplePieces.forEach((piece, idx) => {
+        let existing = state.garments.find(ug => ug.name === piece.name || (ug.category === piece.category && piece.keywords.some(kw => `${ug.name} ${ug.subType} ${ug.color}`.includes(kw))));
+        if (!existing) {
+          existing = { id: 'g_trend_' + Date.now() + '_' + idx, name: piece.name, category: piece.category, subType: piece.subType, style: piece.style, color: piece.color, price: piece.price, comfort: piece.comfort, shape: piece.shape, reason: '2026 秋冬流行穿搭公式單品' };
+          state.garments.unshift(existing);
+        }
+        chosenIds.push(existing.id);
+      });
+      return chosenIds;
+    };
+    const tryTrendBtn = e.target.closest('[data-try-trend]');
+    if (tryTrendBtn) {
+      const trend = findTrendPieces(tryTrendBtn.dataset.tryTrend);
+      if (trend) { selectedGarmentIds = new Set(ensureTrendGarments(trend)); saveState(); switchTab('log'); showToast(`🔥 已套用「${trend.title}」！點選「儲存穿搭日記」即可完成紀錄`); }
+      return;
+    }
+    const boardTrendBtn = e.target.closest('[data-board-trend]');
+    if (boardTrendBtn) {
+      const trend = findTrendPieces(boardTrendBtn.dataset.boardTrend);
+      if (trend) {
+        const chosenIds = ensureTrendGarments(trend);
+        state.boardItems = chosenIds.map((gid, i) => ({ instanceId: 'tb_' + Date.now() + '_' + i, garmentId: gid, x: 45 + (i % 3) * 135, y: 45 + Math.floor(i / 3) * 140, scale: 1.05, z: i + 1 }));
+        activeBoardInstanceId = state.boardItems[0]?.instanceId || null;
+        saveState(); switchTab('canvas'); showToast(`🎨 已將「${trend.title}」擺上自由畫板！`);
+      }
+      return;
+    }
+    const wearTodayBtn = e.target.closest('[data-wear-today]');
+    if (wearTodayBtn) { selectedGarmentIds.add(wearTodayBtn.dataset.wearToday); switchTab('log'); showToast('已將單品加入今日穿搭！點擊「儲存穿搭日記」即可記錄'); return; }
+    const addToBoardBtn = e.target.closest('[data-add-to-board]');
+    if (addToBoardBtn) {
+      const gid = addToBoardBtn.dataset.addToBoard;
+      const newInstId = 'b_' + Date.now();
+      state.boardItems = state.boardItems || [];
+      state.boardItems.push({ instanceId: newInstId, garmentId: gid, x: 80 + Math.floor(Math.random() * 160), y: 50 + Math.floor(Math.random() * 140), scale: 1.05, z: state.boardItems.length + 1 });
+      activeBoardInstanceId = newInstId;
+      saveState();
+      if (currentTab !== 'canvas') switchTab('canvas'); else renderAll();
+      showToast('✨ 已將單品放到自由畫板！可自由拖曳比較');
+      return;
+    }
+    const editGarmentBtn = e.target.closest('[data-edit-garment]');
+    if (editGarmentBtn) { openGarmentModal(editGarmentBtn.dataset.editGarment); return; }
+    const deleteGarmentBtn = e.target.closest('[data-delete-garment]');
+    if (deleteGarmentBtn) {
+      const gid = deleteGarmentBtn.dataset.deleteGarment;
+      state.garments = state.garments.filter(g => g.id !== gid);
+      state.logs.forEach(l => { l.items = (l.items || []).filter(id => id !== gid); });
+      state.boardItems = (state.boardItems || []).filter(b => b.garmentId !== gid);
+      selectedGarmentIds.delete(gid);
+      saveState(); renderAll(); showToast('已從電子衣櫥移除該單品');
+      return;
+    }
+  });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initStylaDayApp);
+else initStylaDayApp();
+</script>
+</body>
+</html>
