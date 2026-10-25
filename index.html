@@ -1928,5 +1928,111 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+<style>
+.ig-overlay{position:fixed;inset:0;z-index:9999;background:rgba(28,25,23,.55);display:none;align-items:flex-end;justify-content:center;padding:0}
+.ig-overlay.ig-show{display:flex}
+.ig-sheet{background:#fffdfb;color:#1c1917;width:100%;max-width:430px;max-height:92vh;overflow-y:auto;border-radius:22px 22px 0 0;padding:22px 20px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -8px 40px rgba(0,0,0,.25);font-family:inherit;animation:ig-up .35s ease}
+@keyframes ig-up{from{transform:translateY(40px);opacity:.4}to{transform:translateY(0);opacity:1}}
+@media(min-width:560px){.ig-overlay{align-items:center;padding:20px}.ig-sheet{border-radius:22px}}
+.ig-title{font-size:19px;font-weight:800;text-align:center;margin:2px 0 2px}
+.ig-sub{font-size:13px;color:#78716c;text-align:center;margin:0 0 16px}
+.ig-step{display:flex;gap:12px;align-items:flex-start;background:#f6f4f0;border:1px solid #e7e2da;border-radius:16px;padding:12px;margin:0 0 10px}
+.ig-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#1c1917;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.ig-step p{margin:0;font-size:14px;line-height:1.55}
+.ig-step b{font-weight:800}
+.ig-mock{flex:0 0 auto;width:104px;background:#fff;border:1px solid #e7e2da;border-radius:12px;padding:8px;box-shadow:0 2px 8px rgba(28,25,23,.06)}
+.ig-bar{display:flex;align-items:center;gap:5px;background:#eef0f3;border-radius:8px;padding:5px 6px}
+.ig-url{flex:1;height:14px;border-radius:7px;background:#fff;font-size:8px;color:#8a8f98;display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
+.ig-share{position:relative;width:20px;height:20px;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+.ig-share svg{width:17px;height:17px;stroke:#0a84ff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ig-share::after{content:"";position:absolute;inset:-4px;border:2px solid #0a84ff;border-radius:50%;opacity:.55;animation:ig-pulse 1.6s infinite}
+@keyframes ig-pulse{0%{transform:scale(.7);opacity:.7}70%{transform:scale(1.15);opacity:0}100%{opacity:0}}
+.ig-row{display:flex;align-items:center;gap:6px;font-size:9.5px;color:#3f3f46;padding:5px 4px;border-radius:7px}
+.ig-row svg{width:13px;height:13px;stroke:#3f3f46;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.ig-row.ig-hl{background:#e8f2ff;color:#0a5cd6;font-weight:700;outline:1.5px solid #0a84ff}
+.ig-row.ig-hl svg{stroke:#0a5cd6}
+.ig-dim{opacity:.45}
+.ig-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:9.5px;color:#1c1917;font-weight:600;padding:2px 2px 6px}
+.ig-toggle{flex:0 0 auto;width:30px;height:18px;border-radius:9px;background:#34c759;position:relative}
+.ig-toggle::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.ig-addbtn{background:#0a84ff;color:#fff;font-size:9.5px;font-weight:700;text-align:center;border-radius:7px;padding:5px 0}
+.ig-ok{display:block;width:100%;margin-top:14px;background:#1c1917;color:#fff;border:0;border-radius:14px;padding:14px;font-size:15px;font-weight:700;cursor:pointer}
+.ig-later{display:block;width:100%;margin-top:6px;background:none;border:0;color:#a8a29e;font-size:13px;padding:8px;cursor:pointer}
+</style>
+<div class="ig-overlay" id="iosGuide" role="dialog" aria-modal="true" aria-labelledby="iosGuideTitle" hidden>
+  <div class="ig-sheet">
+    <div class="ig-title" id="iosGuideTitle">🎀 把 StylaDay 裝成 App</div>
+    <p class="ig-sub">加到主畫面後，全螢幕開啟、沒網路也能用，只要 10 秒：</p>
+    <div class="ig-step">
+      <div class="ig-num">1</div>
+      <p>點 Safari 下方的<b>「分享」</b>按鈕<br><span style="color:#78716c;font-size:12px">就是方框加上向上箭頭的那個圖示</span></p>
+      <div class="ig-mock" aria-hidden="true">
+        <div class="ig-bar">
+          <div class="ig-url">alicesmiki.github.io</div>
+          <div class="ig-share"><svg viewBox="0 0 24 24"><path d="M12 15V4"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-7"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div class="ig-step">
+      <div class="ig-num">2</div>
+      <p>在選單裡往下滑，點<b>「加入主畫面」</b></p>
+      <div class="ig-mock" aria-hidden="true">
+        <div class="ig-row ig-dim"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/></svg>加入書籤</div>
+        <div class="ig-row ig-hl"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg>加入主畫面</div>
+        <div class="ig-row ig-dim"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>在頁面中尋找</div>
+      </div>
+    </div>
+    <div class="ig-step">
+      <div class="ig-num">3</div>
+      <p>把<b>「以 Web App 形式開啟」</b>打開，再點右上角<b>「加入」</b>就完成了</p>
+      <div class="ig-mock" aria-hidden="true">
+        <div class="ig-toggle-row"><span>以 Web App 形式開啟</span><span class="ig-toggle"></span></div>
+        <div class="ig-addbtn">加入</div>
+      </div>
+    </div>
+    <button type="button" class="ig-ok" id="iosGuideOk">知道了，我來試試</button>
+    <button type="button" class="ig-later" id="iosGuideLater">之後再說</button>
+  </div>
+</div>
+<script>
+(function () {
+  'use strict';
+  var KEY = 'styladay_ios_guide_v1';
+  function alreadyInstalled() {
+    return window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  }
+  function iosInfo() {
+    var ua = navigator.userAgent || '';
+    var m = ua.match(/OS (\d+)[_.]/);
+    var version = m ? parseInt(m[1], 10) : null;
+    if (/iPhone|iPod/.test(ua)) return { ios: true, version: version };
+    if (/iPad/.test(ua)) return { ios: true, version: version };
+    /* iPadOS 13+ 會偽裝成 Mac，從 UA 讀不到版本；以觸控 Mac 視為 iPad */
+    if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) return { ios: true, version: 17 };
+    return { ios: false, version: version };
+  }
+  function seen() {
+    try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; }
+  }
+  function markSeen() {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  }
+  function init() {
+    var info = iosInfo();
+    if (!info.ios || (info.version !== null && info.version < 17)) return;
+    if (alreadyInstalled() || seen()) return;
+    var el = document.getElementById('iosGuide');
+    if (!el) return;
+    function close() { el.classList.remove('ig-show'); el.hidden = true; markSeen(); }
+    document.getElementById('iosGuideOk').addEventListener('click', close);
+    document.getElementById('iosGuideLater').addEventListener('click', close);
+    el.addEventListener('click', function (e) { if (e.target === el) close(); });
+    window.setTimeout(function () { el.hidden = false; el.classList.add('ig-show'); }, 900);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
