@@ -61,3 +61,11 @@ npx serve .
 | `index.html` | 全部功能（HTML + CSS + JS）都在這一個檔案裡 |
 | `REVIEW.md` | 程式碼審查報告：發現的問題與逐項修正對照 |
 | `README.md` | 本文件 |
+
+## 安裝成手機 App（PWA）
+
+StylaDay 是可安裝的網頁 App（PWA）：
+
+- **Android（Chrome）**：打開網站後，瀏覽器會跳出「安裝應用程式」提示，或從 ⋮ 選單選「加到主畫面」。
+- **iPhone（Safari）**：打開網站 → 分享按鈕 →「加入主畫面」。
+- 安裝後桌面會出現 🎀 StylaDay 圖示（深底粉紅蝴蝶結），點開是全螢幕 App；有 service worker 快取，沒網路也能開啟使用，資料一樣只存在你自己的裝置裡。
